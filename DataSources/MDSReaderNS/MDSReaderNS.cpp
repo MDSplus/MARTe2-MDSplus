@@ -494,7 +494,10 @@ bool MDSReaderNS::SetConfiguredDatabase(StructuredDataI & data) {
 	    }
 
 	    std::cout << "Number of elements: " << nElements[i] << "   Number of samples: " << numSignalSamples[i] << std::endl;
-	    for(int j  =0; j < 20; j++) std::cout << signalData[i][j] << "  "; std::cout<< std::endl;	    
+	    for(int j  =0; j < 20; j++) {
+               std::cout << signalData[i][j] << "  ";
+            }
+            std::cout<< std::endl;	    
 	    
 	    
 	    if(ok)  {
