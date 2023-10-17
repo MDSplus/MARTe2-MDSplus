@@ -38,7 +38,7 @@
 /*                           Class declaration                               */
 /*---------------------------------------------------------------------------*/
 /**************************************************************
-PickSampleGAM  will pick the first sample for an arbitrary number of inputs,
+PickSampleGAM  will pick the last sample for an arbitrary number of inputs,
 where every input is an arbitrary set of samples for scalars or array of arbitrary length. 
 Supported types are float32, float64, int8, int16, int32, int64.
 The GAM expects an equal number of outputs and every output will be represented by the same type and dimension 

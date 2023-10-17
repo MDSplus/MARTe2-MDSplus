@@ -248,11 +248,13 @@ bool PickSampleGAM::Setup() {
 
 bool PickSampleGAM::Execute() {
 	
-  //  REPORT_ERROR(ErrorManagement::Debug, "EXECUTE");
+ //   REPORT_ERROR(ErrorManagement::Debug, " PICK SAMPLE EXECUTE");
     if(numInSignals == numOutSignals)
     {
         for (uint32 sigIdx = 0; sigIdx < numInSignals; sigIdx++) {
-            memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
+ //Gabriele Oct 2023: copy last sample, i.e. the most recent one
+ //           memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
+            memcpy(outputSignals[sigIdx], inputSignals[sigIdx]+(signalSamples[sigIdx] - 1)*signalByteSize[sigIdx], signalByteSize[sigIdx]); //Copy last sample
         }
     }
     else //Compacting inputs in a single output
