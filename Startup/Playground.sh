@@ -37,6 +37,8 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/DataSo
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/GAMs/MDSReaderGAM
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/Interfaces/MDSEventManager
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/GAMs/DelayedSimulinkWrapperGAM/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/DataSources/RTNIn
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../Build/x86-linux/Components/DataSources/RTNOut
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_DIR/Build/x86-linux/Core/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/DataSources/EpicsDataSource/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/DataSources/LinuxTimer/
@@ -58,6 +60,8 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Componen
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/Interfaces/BaseLib2Wrapper/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/Interfaces/EPICSInterface/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/DataSources/MDSWriter
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/MARTe2/MARTe2-rfx-components/Build/x86-linux/Components/GAMs/MegavoltGAM
+
 
 LD_LIBRARY_PATH=$MARTe2_Components_DIR/Build/x86-linux/Components/GAMs/SimulinkWrapperGAM:$LD_LIBRARY_PATH
 
