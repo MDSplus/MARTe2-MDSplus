@@ -134,6 +134,7 @@ bool MathExpressionGAM::Setup() {
 	
 	bool ok;
 	
+	printf("MAT EXPRESSION SETUP\n");
 	//REPORT_ERROR(ErrorManagement::Debug, "SETUP");
 	
 	/**
@@ -297,7 +298,8 @@ bool MathExpressionGAM::Setup() {
 		}
 		
 	}
-	
+		printf("MAT EXPRESSION SETUP FATTA\n");
+
 	return ok;
 }
 

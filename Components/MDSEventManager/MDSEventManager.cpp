@@ -137,6 +137,7 @@ MDSEventManager::~MDSEventManager() {
 
 
 bool MDSEventManager::Initialise(StructuredDataI & data) {
+    printf("\n\n\nMDS EVENTS INIT\n\n\n");
     bool ok = ReferenceContainer::Initialise(data);
     if (ok) {
         if (!data.Read("CPUs", cpuMask)) {

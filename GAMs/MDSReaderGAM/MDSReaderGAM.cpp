@@ -327,7 +327,7 @@ bool MDSReaderGAM::Initialise(StructuredDataI& data) {
 
 bool MDSReaderGAM::Setup() {
     bool ok = true;
-    std::cout << "SETUP" << std::endl;
+    std::cout << "SETUP  MDS READER" << std::endl<< std::endl;
 
     inputType =  GetSignalType(InputSignals, 0);
     ok = ((inputType == UnsignedInteger64Bit)||(inputType == SignedInteger64Bit)||(inputType == UnsignedInteger32Bit)||(inputType == SignedInteger64Bit));
