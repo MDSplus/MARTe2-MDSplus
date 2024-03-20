@@ -164,7 +164,6 @@ bool DTACQAI::GetInputBrokers(ReferenceContainer& inputBrokers, const char8* con
     if (ok) {
         ok = inputBrokers.Insert(broker);
     }
-
     return ok;
 }
 bool DTACQAI::IsSupportedBroker(const SignalDirection direction, const uint32 functionIdx, const uint32 functionSignalIdx, const char8* const brokerClassName)
@@ -488,7 +487,6 @@ bool DTACQAI::Initialise(StructuredDataI& data) {
 }
 
 bool DTACQAI::SetConfiguredDatabase(StructuredDataI& data) {
-    printf("SET CONFIGURED\n\n");
     uint32 numAiSignals, numDiSignals;
     bool ok = DataSourceI::SetConfiguredDatabase(data);
     if(ok)
@@ -507,7 +505,6 @@ bool DTACQAI::SetConfiguredDatabase(StructuredDataI& data) {
         uint32 currOffset = 0;
         numSamples = 0;
     }
-    printf("\n\nNUM SIGNALS: %d\n", numSignals);
     if(ok)
     {
         uint32 currOffset = 0;
@@ -600,7 +597,6 @@ bool DTACQAI::SetConfiguredDatabase(StructuredDataI& data) {
             }
             if(ok)
             {
-                printf("CONNECT TO %s\n", (char *)ipAddress.Buffer());
                 if(!tcpSocket->Connect(ipAddress.Buffer(), port))
                 {
                     REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect TCP socket to %s:%d", ipAddress.Buffer(), port);
@@ -620,6 +616,7 @@ bool DTACQAI::SetConfiguredDatabase(StructuredDataI& data) {
             if(ok)
             {
                InternetHost ip(port, ipAddress.Buffer());
+               printf("UDP: %s\n", ipAddress.Buffer());
                 udpSocket->SetSource(ip);
                 if(!udpSocket->Listen(port))
                 {
