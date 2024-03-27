@@ -658,7 +658,9 @@ bool MDSReaderGAM::GetNodeDataAndSamplingTime(const uint32 idx, float64 * &data,
         MDSplus::deleteData(dataTimebase);
         MDSplus::deleteData(nodeTimebase);
         if((uint32)dimSamples < numDataSamples)
-	    numDataSamples = dimSamples;
+        {
+	        numDataSamples = dimSamples;
+        }
 	    tDiff = (timebase[dimSamples - 1] - timebase[0])/dimSamples;
 	    return true;
     }catch(MDSplus::MdsException &exc)
