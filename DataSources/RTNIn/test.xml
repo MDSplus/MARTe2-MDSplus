@@ -1,0 +1,5923 @@
+<?xml version="1.0" encoding="UTF-8"?><tree>
+<node FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="SUBBI" USAGE="SUBTREE"/>
+<node FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="SUBBO" USAGE="SUBTREE"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="ACC" TAGS="GREARGER" USAGE="ACTION">
+<data>Build_Action(Build_Dispatch(2, "uuu", "aaa", 44, *), (WRITE(*, "CICCIOBEO");
+1;
+), *, *, *)</data>
+<node FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="SUBBO" USAGE="SUBTREE"/>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="ANY" USAGE="ANY">
+<data>LIST(*, Dict(, "cicci",1), Dict(, "cicci",2))</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="ANYAPD" USAGE="ANY">
+<data>List(,"cicci",123,"struct",321)</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="APD" USAGE="ANY">
+<data>LIST(*, Dict(, "cicci",1), Dict(, "cicci",2))</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="CICCI" TAGS="AAA" USAGE="NUMERIC">
+<data>123</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="DAC_SIGNAL" USAGE="SIGNAL">
+<data>Build_Signal([0.,1.,2.,3.,4.,3.,4.,3.,2.,3.,1.,.1], *, [0.,1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.])</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DEMOADC" NAME="DEMOADC">
+<field NAME=":ADDR">
+<data>"ddd"</data>
+</field>
+<field NAME=":CLOCK_FREQ">
+<data>10000</data>
+</field>
+<field NAME=":TRIG_SOURCE">
+<data>0</data>
+</field>
+<field NAME=":PTS">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_0:START_IDX">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_0:END_IDX">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:START_IDX">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:END_IDX">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:START_IDX">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2:END_IDX">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:START_IDX">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3:END_IDX">
+<data>1000</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "INIT", 50, ""), Build_Method(*, "init", \TOP:DEMOADC))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "STORE", 50, ""), Build_Method(*, "store", \TOP:DEMOADC))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DEMOSTREAM" NAME="DEMOSTREAM"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO2" NAME="DIO2" STATE="OFF">
+<field NAME=".CHANNEL_1:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_2:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_3:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_4:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_5:DELAY">
+<data>\AAA</data>
+</field>
+<field NAME=".CHANNEL_5:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_6:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_7:CLOCK">
+<data>* : * : .001</data>
+</field>
+<field NAME=".CHANNEL_8:CLOCK">
+<data>* : * : .001</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>4</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_1:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_1:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1:DELAY">
+<data>.2</data>
+</field>
+<field NAME=".CHANNEL_1:DURATION">
+<data>.5</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>100</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:CLOCK">
+<data>.-:TRIGGER + .-:DELAY : .-:TRIGGER + .-:DELAY + .-:DURATION : .01D0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"GCLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_2:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:DELAY">
+<data>.3</data>
+</field>
+<field NAME=".CHANNEL_2:DURATION">
+<data>.8</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_2:INIT_LEV_2">
+<data>"HIGH"</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2:TRIGGER">
+<data>3.</data>
+</field>
+<field NAME=".CHANNEL_2:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_2:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_3:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_3:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_3:DURATION">
+<data>1D0</data>
+</field>
+<field NAME=".CHANNEL_3:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_3:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_3:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_3:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_4:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_4:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_4:DURATION">
+<data>1D0</data>
+</field>
+<field NAME=".CHANNEL_4:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_4:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_4:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_4:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_5:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_5:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_5:DURATION">
+<data>1D0</data>
+</field>
+<field NAME=".CHANNEL_5:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_5:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_5:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_5:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_6:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_6:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_6:DURATION">
+<data>1D0</data>
+</field>
+<field NAME=".CHANNEL_6:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_6:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_6:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_6:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_7:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_7:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_7:DURATION">
+<data>1D0</data>
+</field>
+<field NAME=".CHANNEL_7:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_7:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_7:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_7:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:TRIG_MODE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".CHANNEL_8:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:DELAY">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8:DURATION">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1</data>
+</field>
+<field NAME=".CHANNEL_8:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_8:INIT_LEV_2">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8:CLOCK">
+<data>.-:TRIGGER + .-:DELAY : .-:TRIGGER + .-:DELAY + .-:DURATION : .001D0</data>
+</field>
+<field NAME=".CHANNEL_8:TRIGGER_1">
+<data>.-:TRIGGER + .-:DELAY</data>
+</field>
+<field NAME=".CHANNEL_8:TRIGGER_2">
+<data>.-:TRIGGER + .-:DELAY + .-:DURATION</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"FALLING"</data>
+</field>
+<field NAME=".OUT_EV_SW:NAME">
+<data>"TEST"</data>
+</field>
+<field NAME=".OUT_EV_SW:CODE">
+<data>240</data>
+</field>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4_1" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>3</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"HIGHWAY"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_1:TRIG_MODE">
+<data>"EVENT"</data>
+</field>
+<field NAME=".CHANNEL_1:EVENT">
+<data>"TEST"</data>
+</field>
+<field NAME=".CHANNEL_1:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_1:DURATION">
+<data>.01</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_1:INIT_LEV_2">
+<data>"HIGH"</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"GCLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:TRIG_MODE">
+<data>"EVENT"</data>
+</field>
+<field NAME=".CHANNEL_2:EVENT">
+<data>"TEST"</data>
+</field>
+<field NAME=".CHANNEL_2:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:DELAY">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2:DURATION">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_3:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_4:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_4:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_5:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_5:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_6:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_6:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_7:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_7:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".OUT_EV_SW" STATE="OFF"/>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4_1))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4_1))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4_1))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4_2" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>2</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"HIGHWAY"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_3:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_4:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_4:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_5:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_5:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_6:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_6:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_7:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_7:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".OUT_EV_SW" STATE="OFF"/>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4_2))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4_2))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4_2))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4_3" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>1</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"HIGHWAY"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_3:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_4:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_4:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_5:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_5:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_6:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_6:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_7:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_7:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".OUT_EV_SW" STATE="OFF"/>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4_3))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4_3))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4_3))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4_4" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>0</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"HIGHWAY"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"PULSE"</data>
+</field>
+<field NAME=".CHANNEL_1:TRIG_MODE">
+<data>"EVENT"</data>
+</field>
+<field NAME=".CHANNEL_1:EVENT">
+<data>"TEST"</data>
+</field>
+<field NAME=".CHANNEL_1:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1:DELAY">
+<data>0D0</data>
+</field>
+<field NAME=".CHANNEL_1:DURATION">
+<data>.01</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:INIT_LEV_1">
+<data>"LOW"</data>
+</field>
+<field NAME=".CHANNEL_1:INIT_LEV_2">
+<data>"HIGH"</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_3:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_4:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_4:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_5:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_5:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_6:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_6:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_7:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_7:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".OUT_EV_SW" STATE="OFF"/>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4_4))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4_4))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4_4))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DIO4" NAME="DIO4_5" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>5</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>"HIGHWAY"</data>
+</field>
+<field NAME=":REC_START_EV" STATE="OFF"/>
+<field NAME=":SYNCH_EVENT" STATE="OFF"/>
+<field NAME=".CHANNEL_1:FUNCTION">
+<data>"DCLOCK"</data>
+</field>
+<field NAME=".CHANNEL_1:TRIG_MODE">
+<data>"EVENT"</data>
+</field>
+<field NAME=".CHANNEL_1:EVENT">
+<data>"TEST"</data>
+</field>
+<field NAME=".CHANNEL_1:CYCLIC">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1:DELAY">
+<data>.3</data>
+</field>
+<field NAME=".CHANNEL_1:DURATION">
+<data>.5</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_1:FREQ_2">
+<data>10000</data>
+</field>
+<field NAME=".CHANNEL_1:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_1:TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_1.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_2:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_2:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_3:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_3:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_4:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_4:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_5:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_5:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_6:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_6:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_7:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_7:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8:FUNCTION">
+<data>"CLOCK"</data>
+</field>
+<field NAME=".CHANNEL_8:FREQ_1">
+<data>1000</data>
+</field>
+<field NAME=".CHANNEL_8:DUTY_CYCLE">
+<data>50</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV1:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8.OUT_EV2:EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=".OUT_EV_SW" STATE="OFF"/>
+<field NAME=".OUT_EV_SW:TIME">
+<data>0</data>
+</field>
+<field NAME=".CHANNEL_1:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_2:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_3:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_4:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_5:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_6:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_7:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=".CHANNEL_8:TERM">
+<data>"NO"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:DIO4_5))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:DIO4_5))</data>
+</field>
+<field NAME=":RESET_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CPCI_SERVER", "RESET", 50, ""), Build_Method(*, "RESET", \TOP:DIO4_5))</data>
+</field>
+</device>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="DISPI" TAGS="ASSA" USAGE="DISPATCH"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="DI_INPUT" USAGE="SIGNAL">
+<data>resample(Build_Signal([0,1,0,1], *, [1,5,10,15]), *, *, .1)</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="DO_SIGNAL" USAGE="SIGNAL">
+<data>Build_Signal(SIN((0 : 1000) / 100.), *, (0 : 1000) / 10.)</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="DTACQ_SUPERVISOR" NAME="DTACQ">
+<field NAME=":IP_ADDR">
+<data>"192.168.54.244"</data>
+</field>
+<field NAME=":UDP_ADDR">
+<data>"192.168.62.100"</data>
+</field>
+<field NAME=":UDP_GATEWAY">
+<data>"192.168.62.1"</data>
+</field>
+<field NAME=":UDP_PORT">
+<data>53676</data>
+</field>
+<field NAME=":AI_R_DEVICE">
+<data>\TOP:DTACQAI_R</data>
+</field>
+<field NAME=":AI_B_DEVICE">
+<data>\TOP:DTACQAI</data>
+</field>
+<field NAME=":AI_SITES">
+<data>[1,2]</data>
+</field>
+<field NAME=":AI_CHANS">
+<data>[32,32]</data>
+</field>
+<field NAME=":SPAD_SIZE">
+<data>16</data>
+</field>
+<field NAME=":AO_DEVICE">
+<data>\TOP:DTACQAO</data>
+</field>
+<field NAME=":AO_SITES">
+<data>[3]</data>
+</field>
+<field NAME=":AO_CHANS">
+<data>[32]</data>
+</field>
+<field NAME=":DIO_SITE">
+<data>6</data>
+</field>
+<field NAME=":CLOCK_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":CLOCK_FREQ">
+<data>10000</data>
+</field>
+<field NAME=":CLOCK_DIV">
+<data>10</data>
+</field>
+<field NAME=":EXT_CK_FREQ">
+<data>10000</data>
+</field>
+<field NAME=":TRIGGER">
+<data>0</data>
+</field>
+<field NAME=":DIO_BYTE1">
+<data>"INPUT"</data>
+</field>
+<field NAME=":DIO_BYTE2">
+<data>"INPUT"</data>
+</field>
+<field NAME=":DIO_BYTE3">
+<data>"INPUT"</data>
+</field>
+<field NAME=":DIO_BYTE4">
+<data>"INPUT"</data>
+</field>
+<field NAME=".PG1:SITE">
+<data>4</data>
+</field>
+<field NAME=".PG1:TRIG_SOURCE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".PG1:MODE">
+<data>"LOOP"</data>
+</field>
+<field NAME=".PG1:TIME_DIV">
+<data>400000</data>
+</field>
+<field NAME=".PG1:LOOP_PERIOD">
+<data>25</data>
+</field>
+<field NAME=".PG1:D1_TIMES">
+<data>[0,10,11,20]</data>
+</field>
+<field NAME=".PG1:D2_TIMES">
+<data>[0,10]</data>
+</field>
+<field NAME=".PG2:SITE">
+<data>5</data>
+</field>
+<field NAME=".PG2:TRIG_SOURCE">
+<data>"SOFTWARE"</data>
+</field>
+<field NAME=".PG2:MODE">
+<data>"SINGLE"</data>
+</field>
+<field NAME=".PG2:TIME_DIV">
+<data>400000</data>
+</field>
+<field NAME=".PG2:LOOP_PERIOD">
+<data>0</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_DTACQAI" NAME="DTACQAI">
+<field NAME=":TIMEBASE">
+<data>0 : 1000000 : 1. / .-.PARAMETERS.PAR_1:VALUE</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>10000D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>0D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:VALUE">
+<data>1</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:VALUE">
+<data>2</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:VALUE">
+<data>1</data>
+</field>
+<field NAME=".PARAMETERS.PAR_6:VALUE">
+<data>[32,32]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_7:VALUE">
+<data>[.00030501D0,.000304957D0,.000304988D0,.000304967D0,.000304968D0,.000304955D0,.000304981D0,.000304998D0,.000305144D0,.000305128D0,.000305112D0,.000305108D0,.000305144D0,.00030508D0,.000305125D0,.000305109D0,.000305191D0,.000305114D0,.000305103D0,.000305089D0,.000305101D0,.000305121D0,.00030509D0,.000305109D0,.000305343D0,.000305286D0,.000305302D0,.000305308D0,.000305265D0,.000305251D0,.00030534D0,.000305367D0,.000304994D0,.000304954D0,.000304956D0,.000304969D0,.000304936D0,.000304931D0,.000304992D0,.000304976D0,.000305186D0,.000305175D0,.000305096D0,.000305137D0,.000305142D0,.000305108D0,.000305118D0,.000305184D0,.000305009D0,.00030502D0,.000304956D0,.000304978D0,.000304967D0,.000304962D0,.000304988D0,.000304986D0,.000305089D0,.000305072D0,.000305041D0,.000305048D0,.000305005D0,.000305033D0,.000305076D0,.000305116D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_8:VALUE">
+<data>[.000286115D0,.000240361D0,.000217488D0,.000263234D0,.000240361D0,.000164122D0,.000347105D0,.000316612D0,.000179341D0,.000186972D0,.000194602D0,.000209857D0,.000225113D0,.000179351D0,.000133575D0,.000270879D0,.000110666D0,.000156462D0,.00017172D0,.000171722D0,.000255623D0,.000141205D0,.000209858D0,.000286135D0,.000286181D0,.000217481D0,.000141155D0,.000209847D0,.000301429D0,.000217482D0,.000286181D0,.000354894D0,.000162737D0,.000132249D0,.000101753D0,94.12319999999999D-6,.000238981D0,.000231357D0,.000200861D0,.000307604D0,.000139814D0,.000139817D0,.000177974D0,94.0562D-6,.000238997D0,.000208483D0,.00029239D0,.000261888D0,.000292363D0,.000223736D0,.000208487D0,78.8707D-6,.000299977D0,.000254231D0,.000269484D0,.000322856D0,.000277129D0,.000238991D0,.000216111D0,78.8392D-6,.000223736D0,.000231363D0,.000460172D0,.000261878D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_9:VALUE">
+<data>"192.168.54.244"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_10:VALUE">
+<data>4210</data>
+</field>
+<field NAME=".PARAMETERS.PAR_12:VALUE">
+<data>16</data>
+</field>
+<field NAME=".PARAMETERS.PAR_13:VALUE">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS:POST_TRIGGER">
+<data>127</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.TIME:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.TIME:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.TIME:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:SEG_LEN">
+<data>10</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:SEG_LEN">
+<data>10000</data>
+</field>
+<field NAME=".OUTPUTS.DI_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_2.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_3.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_4.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_5.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_6.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_7.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_8.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_9.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_10.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_11.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_12.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_13.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_14.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_15.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_16.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_17.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_18.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_19.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_20.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_21.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_22.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_23.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_24.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_25.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_26.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_27.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_28.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_29.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_30.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_31.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:SAMPLES">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_32.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_DTACQAI" NAME="DTACQAI_R">
+<field NAME=":TIMEBASE">
+<data>0 : 1000000 : 1. / .-.PARAMETERS.PAR_1:VALUE</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>1000D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>0D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:VALUE">
+<data>2</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:VALUE">
+<data>2</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:VALUE">
+<data>1</data>
+</field>
+<field NAME=".PARAMETERS.PAR_6:VALUE">
+<data>[32,32]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_7:VALUE">
+<data>[.00030501D0,.000304957D0,.000304988D0,.000304967D0,.000304968D0,.000304955D0,.000304981D0,.000304998D0,.000305144D0,.000305128D0,.000305112D0,.000305108D0,.000305144D0,.00030508D0,.000305125D0,.000305109D0,.000305191D0,.000305114D0,.000305103D0,.000305089D0,.000305101D0,.000305121D0,.00030509D0,.000305109D0,.000305343D0,.000305286D0,.000305302D0,.000305308D0,.000305265D0,.000305251D0,.00030534D0,.000305367D0,.000304994D0,.000304954D0,.000304956D0,.000304969D0,.000304936D0,.000304931D0,.000304992D0,.000304976D0,.000305186D0,.000305175D0,.000305096D0,.000305137D0,.000305142D0,.000305108D0,.000305118D0,.000305184D0,.000305009D0,.00030502D0,.000304956D0,.000304978D0,.000304967D0,.000304962D0,.000304988D0,.000304986D0,.000305089D0,.000305072D0,.000305041D0,.000305048D0,.000305005D0,.000305033D0,.000305076D0,.000305116D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_8:VALUE">
+<data>[.000286115D0,.000240361D0,.000217488D0,.000263234D0,.000240361D0,.000164122D0,.000347105D0,.000316612D0,.000179341D0,.000186972D0,.000194602D0,.000209857D0,.000225113D0,.000179351D0,.000133575D0,.000270879D0,.000110666D0,.000156462D0,.00017172D0,.000171722D0,.000255623D0,.000141205D0,.000209858D0,.000286135D0,.000286181D0,.000217481D0,.000141155D0,.000209847D0,.000301429D0,.000217482D0,.000286181D0,.000354894D0,.000162737D0,.000132249D0,.000101753D0,94.12319999999999D-6,.000238981D0,.000231357D0,.000200861D0,.000307604D0,.000139814D0,.000139817D0,.000177974D0,94.0562D-6,.000238997D0,.000208483D0,.00029239D0,.000261888D0,.000292363D0,.000223736D0,.000208487D0,78.8707D-6,.000299977D0,.000254231D0,.000269484D0,.000322856D0,.000277129D0,.000238991D0,.000216111D0,78.8392D-6,.000223736D0,.000231363D0,.000460172D0,.000261878D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_9:VALUE">
+<data>"192.168.62.100"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_10:VALUE">
+<data>53676</data>
+</field>
+<field NAME=".PARAMETERS.PAR_12:VALUE">
+<data>16</data>
+</field>
+<field NAME=".PARAMETERS.PAR_13:VALUE">
+<data>1</data>
+</field>
+<field NAME=".PARAMETERS.PAR_14:VALUE">
+<data>10</data>
+</field>
+<field NAME=".OUTPUTS:POST_TRIGGER">
+<data>127</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.COUNTER:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.TIME:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.TIME:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.TIME:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1:SEG_LEN">
+<data>1000</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_2.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_3.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_4.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_5.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_6.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_7.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_8.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_9.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_10.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_11.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_12.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_13.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_14.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_15.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_16.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_17.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_18.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_19.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_20.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_21.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_22.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_23.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_24.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_25.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_26.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_27.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_28.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_29.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_30.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_31.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_32.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_33.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_34.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_35.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_36.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_37.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_38.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_39.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_40.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_41.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_42.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_43.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_44.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_45.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_46.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_47.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_48.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_49.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_50.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_51.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_52.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_53.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_54.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_55.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_56.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_57.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_58.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_59.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_60.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_61.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_62.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_63.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.CHAN_64.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_2.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_3.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_4.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_5.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_6.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_7.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_8.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_9:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_9.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_10:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_10.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_11:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_11.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_12:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_12.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_13:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_13.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_14:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_14.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_15:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_15.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_16:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_16.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_17:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_17.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_18:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_18.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_19:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_19.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_20:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_20.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_21:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_21.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_22:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_22.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_23:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_23.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_24:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_24.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_25:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_25.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_26:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_26.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_27:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_27.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_28:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_28.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_29:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_29.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_30:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_30.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_31:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_31.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.DI_32:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.DI_32.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_DTACQAO" NAME="DTACQAO">
+<field NAME=":TIMEBASE">
+<data>\TOP:DTACQAI_R:TIMEBASE</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>1</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:VALUE">
+<data>[32]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:VALUE">
+<data>"192.168.62.100"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:VALUE">
+<data>53676</data>
+</field>
+<field NAME=".INPUTS.CHAN_1:VALUE">
+<data>\TOP:DTACQAI_R.OUTPUTS.CHAN_1:VALUE</data>
+</field>
+<field NAME=".INPUTS.CHAN_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.CHAN_2:TYPE">
+<data>"uint8"</data>
+</field>
+<field NAME=".INPUTS.CHAN_2:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.CHAN_2.PARAMETERS.PAR_1:VALUE">
+<data>1</data>
+</field>
+<field NAME=".INPUTS.CHAN_3.PARAMETERS.PAR_1:VALUE">
+<data>2</data>
+</field>
+<field NAME=".INPUTS.CHAN_4.PARAMETERS.PAR_1:VALUE">
+<data>3</data>
+</field>
+<field NAME=".INPUTS.CHAN_5.PARAMETERS.PAR_1:VALUE">
+<data>4</data>
+</field>
+<field NAME=".INPUTS.CHAN_6.PARAMETERS.PAR_1:VALUE">
+<data>5</data>
+</field>
+<field NAME=".INPUTS.CHAN_7.PARAMETERS.PAR_1:VALUE">
+<data>6</data>
+</field>
+<field NAME=".INPUTS.CHAN_8.PARAMETERS.PAR_1:VALUE">
+<data>7</data>
+</field>
+<field NAME=".INPUTS.CHAN_9.PARAMETERS.PAR_1:VALUE">
+<data>8</data>
+</field>
+<field NAME=".INPUTS.CHAN_10.PARAMETERS.PAR_1:VALUE">
+<data>9</data>
+</field>
+<field NAME=".INPUTS.CHAN_11.PARAMETERS.PAR_1:VALUE">
+<data>10</data>
+</field>
+<field NAME=".INPUTS.CHAN_12.PARAMETERS.PAR_1:VALUE">
+<data>11</data>
+</field>
+<field NAME=".INPUTS.CHAN_13.PARAMETERS.PAR_1:VALUE">
+<data>12</data>
+</field>
+<field NAME=".INPUTS.CHAN_14.PARAMETERS.PAR_1:VALUE">
+<data>13</data>
+</field>
+<field NAME=".INPUTS.CHAN_15.PARAMETERS.PAR_1:VALUE">
+<data>14</data>
+</field>
+<field NAME=".INPUTS.CHAN_16.PARAMETERS.PAR_1:VALUE">
+<data>15</data>
+</field>
+<field NAME=".INPUTS.CHAN_17.PARAMETERS.PAR_1:VALUE">
+<data>16</data>
+</field>
+<field NAME=".INPUTS.CHAN_18.PARAMETERS.PAR_1:VALUE">
+<data>17</data>
+</field>
+<field NAME=".INPUTS.CHAN_19.PARAMETERS.PAR_1:VALUE">
+<data>18</data>
+</field>
+<field NAME=".INPUTS.CHAN_20.PARAMETERS.PAR_1:VALUE">
+<data>19</data>
+</field>
+<field NAME=".INPUTS.CHAN_21.PARAMETERS.PAR_1:VALUE">
+<data>20</data>
+</field>
+<field NAME=".INPUTS.CHAN_22.PARAMETERS.PAR_1:VALUE">
+<data>21</data>
+</field>
+<field NAME=".INPUTS.CHAN_23.PARAMETERS.PAR_1:VALUE">
+<data>22</data>
+</field>
+<field NAME=".INPUTS.CHAN_24.PARAMETERS.PAR_1:VALUE">
+<data>23</data>
+</field>
+<field NAME=".INPUTS.CHAN_25.PARAMETERS.PAR_1:VALUE">
+<data>24</data>
+</field>
+<field NAME=".INPUTS.CHAN_26.PARAMETERS.PAR_1:VALUE">
+<data>25</data>
+</field>
+<field NAME=".INPUTS.CHAN_27.PARAMETERS.PAR_1:VALUE">
+<data>26</data>
+</field>
+<field NAME=".INPUTS.CHAN_28.PARAMETERS.PAR_1:VALUE">
+<data>27</data>
+</field>
+<field NAME=".INPUTS.CHAN_29.PARAMETERS.PAR_1:VALUE">
+<data>28</data>
+</field>
+<field NAME=".INPUTS.CHAN_30.PARAMETERS.PAR_1:VALUE">
+<data>29</data>
+</field>
+<field NAME=".INPUTS.CHAN_31.PARAMETERS.PAR_1:VALUE">
+<data>30</data>
+</field>
+<field NAME=".INPUTS.CHAN_32.PARAMETERS.PAR_1:VALUE">
+<data>31</data>
+</field>
+<field NAME=".INPUTS.DO_1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.DO_1.PARAMETERS.PAR_1:VALUE">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.DO_2.PARAMETERS.PAR_1:VALUE">
+<data>1</data>
+</field>
+<field NAME=".INPUTS.DO_3.PARAMETERS.PAR_1:VALUE">
+<data>2</data>
+</field>
+<field NAME=".INPUTS.DO_4.PARAMETERS.PAR_1:VALUE">
+<data>3</data>
+</field>
+<field NAME=".INPUTS.DO_5.PARAMETERS.PAR_1:VALUE">
+<data>4</data>
+</field>
+<field NAME=".INPUTS.DO_6.PARAMETERS.PAR_1:VALUE">
+<data>5</data>
+</field>
+<field NAME=".INPUTS.DO_7.PARAMETERS.PAR_1:VALUE">
+<data>6</data>
+</field>
+<field NAME=".INPUTS.DO_8.PARAMETERS.PAR_1:VALUE">
+<data>7</data>
+</field>
+<field NAME=".INPUTS.DO_9.PARAMETERS.PAR_1:VALUE">
+<data>8</data>
+</field>
+<field NAME=".INPUTS.DO_10.PARAMETERS.PAR_1:VALUE">
+<data>9</data>
+</field>
+<field NAME=".INPUTS.DO_11.PARAMETERS.PAR_1:VALUE">
+<data>10</data>
+</field>
+<field NAME=".INPUTS.DO_12.PARAMETERS.PAR_1:VALUE">
+<data>11</data>
+</field>
+<field NAME=".INPUTS.DO_13.PARAMETERS.PAR_1:VALUE">
+<data>12</data>
+</field>
+<field NAME=".INPUTS.DO_14.PARAMETERS.PAR_1:VALUE">
+<data>13</data>
+</field>
+<field NAME=".INPUTS.DO_15.PARAMETERS.PAR_1:VALUE">
+<data>14</data>
+</field>
+<field NAME=".INPUTS.DO_16.PARAMETERS.PAR_1:VALUE">
+<data>15</data>
+</field>
+<field NAME=".INPUTS.DO_17.PARAMETERS.PAR_1:VALUE">
+<data>16</data>
+</field>
+<field NAME=".INPUTS.DO_18.PARAMETERS.PAR_1:VALUE">
+<data>17</data>
+</field>
+<field NAME=".INPUTS.DO_19.PARAMETERS.PAR_1:VALUE">
+<data>18</data>
+</field>
+<field NAME=".INPUTS.DO_20.PARAMETERS.PAR_1:VALUE">
+<data>19</data>
+</field>
+<field NAME=".INPUTS.DO_21.PARAMETERS.PAR_1:VALUE">
+<data>20</data>
+</field>
+<field NAME=".INPUTS.DO_22.PARAMETERS.PAR_1:VALUE">
+<data>21</data>
+</field>
+<field NAME=".INPUTS.DO_23.PARAMETERS.PAR_1:VALUE">
+<data>22</data>
+</field>
+<field NAME=".INPUTS.DO_24.PARAMETERS.PAR_1:VALUE">
+<data>23</data>
+</field>
+<field NAME=".INPUTS.DO_25.PARAMETERS.PAR_1:VALUE">
+<data>24</data>
+</field>
+<field NAME=".INPUTS.DO_26.PARAMETERS.PAR_1:VALUE">
+<data>25</data>
+</field>
+<field NAME=".INPUTS.DO_27.PARAMETERS.PAR_1:VALUE">
+<data>26</data>
+</field>
+<field NAME=".INPUTS.DO_28.PARAMETERS.PAR_1:VALUE">
+<data>27</data>
+</field>
+<field NAME=".INPUTS.DO_29.PARAMETERS.PAR_1:VALUE">
+<data>28</data>
+</field>
+<field NAME=".INPUTS.DO_30.PARAMETERS.PAR_1:VALUE">
+<data>29</data>
+</field>
+<field NAME=".INPUTS.DO_31.PARAMETERS.PAR_1:VALUE">
+<data>30</data>
+</field>
+<field NAME=".INPUTS.DO_32.PARAMETERS.PAR_1:VALUE">
+<data>31</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="ELAD" NAME="ELAD">
+<field NAME=":IP">
+<data>"192.168.72.4"</data>
+</field>
+<field NAME=":PORT">
+<data>8888</data>
+</field>
+<field NAME=":TRIG_TIME">
+<data>0</data>
+</field>
+<field NAME=":PTS">
+<data>20000000</data>
+</field>
+<field NAME=":FREQ_DIV">
+<data>10000</data>
+</field>
+<field NAME=":REC_PORT">
+<data>8111</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_EPICSCA" NAME="EPICS"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_EPICSCA" NAME="EPICS1"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_EPICSCA" NAME="EPICS2"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="ESSE" USAGE="TEXT">
+<data>"ww2"</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SUPERVISOR" NAME="MARTE2">
+<field NAME=":NAME">
+<data>"PROVA"</data>
+</field>
+<field NAME=":NUM_STATES">
+<data>1</data>
+</field>
+<field NAME=".STATE_1:NAME">
+<data>"State1"</data>
+</field>
+<field NAME=".STATE_1:NUM_THREADS">
+<data>2</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:NAME">
+<data>"Thread1"</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:CORE">
+<data>127</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:GAMS">
+<data>[\TOP:RTNOUT]</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:NAME">
+<data>"Thread2"</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:CORE">
+<data>127</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:GAMS">
+<data>[\TOP:RTNIN]</data>
+</field>
+<field NAME=".STATE_1.THREAD_3:NAME">
+<data>"Thread3"</data>
+</field>
+<field NAME=".STATE_1.THREAD_3:CORE">
+<data>15</data>
+</field>
+<field NAME=".STATE_1.THREAD_3:GAMS">
+<data>[\TEST::TOP:AD20ADC1]</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=":MARTE_CONFIG">
+<data>Byte_Unsigned([43,77,68,83,95,69,86,69,78,84,83,32,61,32,123,10,32,32,67,108,97,115,115,32,61,32,77,68,83,69,118,101,110,116,77,97,110,97,103,101,114,10,32,32,83,116,97,99,107,83,105,122,101,32,61,32,49,48,52,56,53,55,54,10,32,32,67,80,85,115,32,61,32,48,120,49,10,32,32,78,97,109,101,32,61,32,80,82,79,86,65,10,125,10,43,87,101,98,82,111,111,116,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,72,116,116,112,79,98,106,101,99,116,66,114,111,119,115,101,114,10,32,32,32,32,82,111,111,116,32,61,32,34,46,34,10,32,32,32,32,43,79,98,106,101,99,116,66,114,111,119,115,101,32,61,32,123,10,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,72,116,116,112,79,98,106,101,99,116,66,114,111,119,115,101,114,10,32,32,32,32,32,32,32,32,82,111,111,116,32,61,32,34,47,34,10,32,32,32,32,125,10,32,32,32,32,43,82,101,115,111,117,114,99,101,115,72,116,109,108,32,61,32,123,10,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,72,116,116,112,68,105,114,101,99,116,111,114,121,82,101,115,111,117,114,99,101,10,32,32,32,32,32,32,32,32,66,97,115,101,68,105,114,32,61,32,34,47,111,112,116,47,77,65,82,84,101,50,47,77,65,82,84,101,50,47,82,101,115,111,117,114,99,101,115,47,72,84,84,80,47,34,10,32,32,32,32,125,32,10,125,10,43,87,101,98,83,101,114,118,101,114,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,72,116,116,112,83,101,114,118,105,99,101,10,32,32,32,32,80,111,114,116,32,61,32,56,48,56,53,10,32,32,32,32,87,101,98,82,111,111,116,32,61,32,87,101,98,82,111,111,116,10,32,32,32,32,84,105,109,101,111,117,116,32,61,32,48,10,32,32,32,32,76,105,115,116,101,110,77,97,120,67,111,110,110,101,99,116,105,111,110,115,32,61,32,50,53,53,10,32,32,32,32,65,99,99,101,112,116,84,105,109,101,111,117,116,32,61,32,49,48,48,48,10,32,32,32,32,77,97,120,78,117,109,98,101,114,79,102,84,104,114,101,97,100,115,32,61,32,56,10,32,32,32,32,77,105,110,78,117,109,98,101,114,79,102,84,104,114,101,97,100,115,32,61,32,49,10,125,32,32,32,32,10,32,43,83,116,97,116,101,77,97,99,104,105,110,101,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,83,116,97,116,101,77,97,99,104,105,110,101,10,32,32,32,32,43,73,78,73,84,73,65,76,32,61,32,123,10,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,32,32,32,32,10,32,32,32,32,32,32,32,32,43,83,84,65,82,84,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,83,116,97,116,101,77,97,99,104,105,110,101,69,118,101,110,116,10,32,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,32,61,32,34,73,68,76,69,34,10,32,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,69,114,114,111,114,32,61,32,34,73,68,76,69,34,10,32,32,32,32,32,32,32,32,32,32,32,32,84,105,109,101,111,117,116,32,61,32,48,10,32,32,32,32,32,32,32,32,32,32,32,32,43,83,116,97,114,116,72,116,116,112,83,101,114,118,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,34,87,101,98,83,101,114,118,101,114,34,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,34,83,116,97,114,116,34,10,32,32,32,32,32,32,32,32,32,32,32,32,125,32,32,32,32,32,32,32,32,32,32,32,32,10,32,32,32,32,32,32,32,32,32,32,32,32,43,67,104,97,110,103,101,84,111,83,116,97,116,101,73,100,108,101,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,80,114,101,112,97,114,101,78,101,120,116,83,116,97,116,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,43,80,97,114,97,109,101,116,101,114,115,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,67,111,110,102,105,103,117,114,97,116,105,111,110,68,97,116,97,98,97,115,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,112,97,114,97,109,49,32,61,32,73,100,108,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,32,43,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,43,73,68,76,69,32,61,32,123,10,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,32,32,32,32,32,32,43,71,79,84,79,82,85,78,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,83,116,97,116,101,77,97,99,104,105,110,101,69,118,101,110,116,10,32,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,32,61,32,34,82,85,78,34,10,32,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,69,114,114,111,114,32,61,32,34,73,68,76,69,34,10,32,32,32,32,32,32,32,32,32,32,32,32,84,105,109,101,111,117,116,32,61,32,48,32,10,32,32,32,32,32,32,32,32,32,32,32,32,43,67,104,97,110,103,101,84,111,82,117,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,80,114,101,112,97,114,101,78,101,120,116,83,116,97,116,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,43,80,97,114,97,109,101,116,101,114,115,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,67,111,110,102,105,103,117,114,97,116,105,111,110,68,97,116,97,98,97,115,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,112,97,114,97,109,49,32,61,32,83,116,97,116,101,49,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,32,43,83,116,111,112,67,117,114,114,101,110,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,83,116,111,112,67,117,114,114,101,110,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,32,43,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,43,82,85,78,32,61,32,123,10,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,32,32,32,32,32,32,43,71,79,84,79,73,68,76,69,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,83,116,97,116,101,77,97,99,104,105,110,101,69,118,101,110,116,10,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,32,61,32,34,73,68,76,69,34,10,32,32,32,32,32,32,32,32,32,32,32,32,78,101,120,116,83,116,97,116,101,69,114,114,111,114,32,61,32,34,73,68,76,69,34,10,32,32,32,32,32,32,32,32,32,32,32,32,84,105,109,101,111,117,116,32,61,32,48,32,32,32,32,32,32,32,32,32,10,32,32,32,32,32,32,32,32,32,32,32,32,43,67,104,97,110,103,101,84,111,73,100,108,101,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,80,114,101,112,97,114,101,78,101,120,116,83,116,97,116,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,43,80,97,114,97,109,101,116,101,114,115,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,67,111,110,102,105,103,117,114,97,116,105,111,110,68,97,116,97,98,97,115,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,112,97,114,97,109,49,32,61,32,73,100,108,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,32,43,83,116,111,112,67,117,114,114,101,110,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,83,116,111,112,67,117,114,114,101,110,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,32,32,32,43,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,77,115,103,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,77,101,115,115,97,103,101,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,68,101,115,116,105,110,97,116,105,111,110,32,61,32,80,82,79,86,65,10,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,32,61,32,83,116,97,114,116,78,101,120,116,83,116,97,116,101,69,120,101,99,117,116,105,111,110,10,32,32,32,32,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,32,32,125,32,32,32,10,32,32,32,32,125,10,125,32,32,32,10,36,80,82,79,86,65,32,61,32,123,10,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,65,112,112,108,105,99,97,116,105,111,110,10,32,43,70,117,110,99,116,105,111,110,115,32,61,32,123,10,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,43,73,68,76,69,95,77,68,83,80,76,85,83,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,73,79,71,65,77,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,73,68,76,69,95,77,68,83,80,76,85,83,95,84,73,77,69,82,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,73,68,76,69,95,77,68,83,80,76,85,83,95,84,73,77,69,82,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,32,32,70,114,101,113,117,101,110,99,121,32,61,32,49,48,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,73,68,76,69,95,77,68,83,80,76,85,83,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,73,68,76,69,95,77,68,83,80,76,85,83,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,79,85,84,84,105,109,101,114,95,73,79,71,65,77,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,73,79,71,65,77,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,105,109,101,114,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,105,109,101,114,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,32,32,70,114,101,113,117,101,110,99,121,32,61,32,49,48,46,48,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,105,109,101,114,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,105,109,101,114,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,79,85,84,95,73,79,71,65,77,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,80,105,99,107,83,97,109,112,108,101,71,65,77,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,82,84,78,79,85,84,95,73,78,80,85,84,83,95,73,78,49,95,86,65,76,85,69,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,114,101,101,73,110,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,82,84,78,79,85,84,95,73,78,80,85,84,83,95,73,78,49,95,86,65,76,85,69,32,61,32,123,10,32,32,32,32,32,32,32,32,83,97,109,112,108,101,115,32,61,32,49,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,79,85,84,95,84,114,101,101,73,110,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,77,68,83,82,101,97,100,101,114,71,65,77,10,32,32,32,32,84,114,101,101,78,97,109,101,32,61,32,34,84,69,83,84,34,10,32,32,32,32,83,104,111,116,78,117,109,98,101,114,32,61,32,45,49,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,32,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,105,109,101,114,95,68,68,66,10,32,32,32,32,32,32,125,32,10,32,32,32,32,125,32,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,32,10,32,32,32,32,32,32,82,84,78,79,85,84,95,73,78,80,85,84,83,95,73,78,49,95,86,65,76,85,69,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,79,85,84,95,84,114,101,101,73,110,68,68,66,10,32,32,32,32,32,32,32,32,68,97,116,97,69,120,112,114,32,61,32,34,92,84,69,83,84,58,58,84,79,80,58,68,65,67,95,83,73,71,78,65,76,34,10,32,32,32,32,32,32,32,32,84,105,109,101,98,97,115,101,69,120,112,114,32,61,32,34,100,105,109,95,111,102,40,92,84,69,83,84,58,58,84,79,80,58,68,65,67,95,83,73,71,78,65,76,41,34,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,32,32,85,115,101,67,111,108,117,109,110,79,114,100,101,114,32,61,32,48,10,32,32,32,32,32,32,32,32,68,97,116,97,77,97,110,97,103,101,109,101,110,116,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,73,78,84,105,109,101,114,95,73,79,71,65,77,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,73,79,71,65,77,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,84,105,109,101,114,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,84,105,109,101,114,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,32,32,70,114,101,113,117,101,110,99,121,32,61,32,49,48,46,48,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,84,105,109,101,114,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,84,105,109,101,114,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,73,78,95,68,68,66,79,117,116,73,79,71,65,77,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,73,79,71,65,77,10,32,32,32,32,73,110,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,79,117,116,49,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,10,32,32,32,32,32,32,32,32,83,97,109,112,108,101,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,50,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,10,32,32,32,32,32,32,32,32,83,97,109,112,108,101,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,51,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,10,32,32,32,32,32,32,32,32,83,97,109,112,108,101,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,52,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,10,32,32,32,32,32,32,32,32,83,97,109,112,108,101,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,32,32,79,117,116,112,117,116,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,79,117,116,49,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,79,117,116,112,117,116,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,50,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,79,117,116,112,117,116,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,51,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,79,117,116,112,117,116,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,52,32,61,32,123,10,32,32,32,32,32,32,32,32,68,97,116,97,83,111,117,114,99,101,32,61,32,82,84,78,73,78,95,79,117,116,112,117,116,95,68,68,66,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,125,10,32,43,68,97,116,97,32,61,32,123,10,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,43,73,68,76,69,95,77,68,83,80,76,85,83,95,84,73,77,69,82,32,61,32,123,10,32,32,32,67,108,97,115,115,32,61,32,76,105,110,117,120,84,105,109,101,114,10,32,32,32,83,108,101,101,112,78,97,116,117,114,101,32,61,32,34,66,117,115,121,34,10,32,32,32,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,125,10,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,125,10,32,32,32,125,10,32,125,10,32,43,73,68,76,69,95,77,68,83,80,76,85,83,95,68,68,66,32,61,32,123,10,32,32,32,67,108,97,115,115,32,61,32,71,65,77,68,97,116,97,83,111,117,114,99,101,10,32,125,10,32,32,43,84,105,109,105,110,103,115,32,61,32,123,10,32,32,32,32,32,32,67,108,97,115,115,32,61,32,84,105,109,105,110,103,68,97,116,97,83,111,117,114,99,101,10,32,32,125,10,32,32,43,82,84,78,79,85,84,95,84,105,109,101,114,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,76,105,110,117,120,84,105,109,101,114,10,32,32,32,32,83,108,101,101,112,78,97,116,117,114,101,32,61,32,34,68,101,102,97,117,108,116,34,10,32,32,32,32,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,79,85,84,95,84,105,109,101,114,95,68,68,66,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,71,65,77,68,97,116,97,83,111,117,114,99,101,10,32,125,10,32,32,43,82,84,78,79,85,84,95,84,114,101,101,73,110,68,68,66,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,71,65,77,68,97,116,97,83,111,117,114,99,101,10,32,125,10,32,32,43,82,84,78,79,85,84,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,82,84,78,79,117,116,10,32,32,32,32,73,112,32,61,32,34,76,111,99,97,108,104,111,115,116,34,10,32,32,32,32,80,111,114,116,32,61,32,40,105,110,116,51,50,41,56,49,50,51,10,32,32,32,32,67,105,114,99,117,105,116,73,100,32,61,32,40,105,110,116,51,50,41,49,10,32,32,32,32,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,82,84,78,79,85,84,95,73,78,80,85,84,83,95,73,78,49,95,86,65,76,85,69,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,73,78,95,84,105,109,101,114,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,76,105,110,117,120,84,105,109,101,114,10,32,32,32,32,83,108,101,101,112,78,97,116,117,114,101,32,61,32,34,68,101,102,97,117,108,116,34,10,32,32,32,32,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,67,111,117,110,116,101,114,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,84,105,109,101,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,117,105,110,116,51,50,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,73,78,95,84,105,109,101,114,95,68,68,66,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,71,65,77,68,97,116,97,83,111,117,114,99,101,10,32,125,10,32,32,43,82,84,78,73,78,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,82,84,78,73,110,10,32,32,32,32,73,112,32,61,32,34,108,111,99,97,108,104,111,115,116,34,10,32,32,32,32,80,111,114,116,32,61,32,40,105,110,116,51,50,41,56,49,50,51,10,32,32,32,32,67,105,114,99,117,105,116,73,100,32,61,32,40,105,110,116,51,50,41,49,10,32,32,32,32,73,115,83,121,110,99,104,32,61,32,40,105,110,116,51,50,41,49,10,32,32,32,32,83,105,103,110,97,108,115,32,61,32,123,10,32,32,32,32,32,32,79,117,116,49,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,50,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,51,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,32,32,79,117,116,52,32,61,32,123,10,32,32,32,32,32,32,32,32,84,121,112,101,32,61,32,102,108,111,97,116,51,50,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,68,105,109,101,110,115,105,111,110,115,32,61,32,48,10,32,32,32,32,32,32,32,32,78,117,109,98,101,114,79,102,69,108,101,109,101,110,116,115,32,61,32,49,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,125,10,32,32,43,82,84,78,73,78,95,79,117,116,112,117,116,95,68,68,66,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,71,65,77,68,97,116,97,83,111,117,114,99,101,10,32,32,125,10,32,32,125,10,32,43,83,116,97,116,101,115,32,61,32,123,10,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,43,73,100,108,101,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,83,116,97,116,101,10,32,32,32,32,43,84,104,114,101,97,100,115,32,61,32,123,10,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,32,32,32,32,32,32,43,84,104,114,101,97,100,49,32,61,32,123,10,32,32,32,32,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,84,104,114,101,97,100,10,32,32,32,32,32,32,32,32,32,32,70,117,110,99,116,105,111,110,115,32,61,32,123,73,68,76,69,95,77,68,83,80,76,85,83,125,10,32,32,32,32,32,32,32,32,125,10,32,32,32,32,32,32,125,10,32,32,32,32,125,10,32,32,43,83,116,97,116,101,49,32,61,32,123,10,32,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,83,116,97,116,101,10,32,32,43,84,104,114,101,97,100,115,32,61,32,123,10,32,32,32,32,67,108,97,115,115,32,61,32,82,101,102,101,114,101,110,99,101,67,111,110,116,97,105,110,101,114,10,32,32,32,32,43,84,104,114,101,97,100,49,32,61,32,123,10,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,84,104,114,101,97,100,10,32,32,32,32,32,32,67,80,85,115,32,61,32,49,50,55,10,32,32,32,32,32,32,70,117,110,99,116,105,111,110,115,32,61,32,123,82,84,78,79,85,84,84,105,109,101,114,95,73,79,71,65,77,32,82,84,78,79,85,84,95,84,114,101,101,73,110,32,82,84,78,79,85,84,95,73,79,71,65,77,32,125,10,32,32,32,32,32,125,10,32,32,32,32,43,84,104,114,101,97,100,50,32,61,32,123,10,32,32,32,32,32,32,67,108,97,115,115,32,61,32,82,101,97,108,84,105,109,101,84,104,114,101,97,100,10,32,32,32,32,32,32,67,80,85,115,32,61,32,49,50,55,10,32,32,32,32,32,32,70,117,110,99,116,105,111,110,115,32,61,32,123,82,84,78,73,78,84,105,109,101,114,95,73,79,71,65,77,32,82,84,78,73,78,95,68,68,66,79,117,116,73,79,71,65,77,32,125,10,32,32,32,32,32,125,10,32,32,32,125,10,32,32,125,10,32,125,10,32,43,83,99,104,101,100,117,108,101,114,32,61,32,123,10,32,32,32,67,108,97,115,115,32,61,32,71,65,77,83,99,104,101,100,117,108,101,114,10,32,32,32,84,105,109,105,110,103,68,97,116,97,83,111,117,114,99,101,32,61,32,84,105,109,105,110,103,115,10,32,125,10,125,10])</data>
+</field>
+<field NAME=":INIT">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "PON", 50, ""), Build_Method(*, "init", \TOP:MARTE2))</data>
+</field>
+<field NAME=":GOTORUN">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "PON", 20, ""), Build_Method(*, "gotorun", \TOP:MARTE2))</data>
+</field>
+<field NAME=":STOP">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "POST_PULSE_CHECK", 50, ""), Build_Method(*, "stopMarte", \TOP:MARTE2))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SUPERVISOR" NAME="MARTE21"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_NI6259_DAC" NAME="MARTE_DAC">
+<field NAME=":TIMEBASE">
+<data>\TEST::TOP:SIN:TIMEBASE</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_NI6259_DI" NAME="MARTE_DI"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_NI6259_DO" NAME="MARTE_DO"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_EXPR" NAME="MARTE_EXPR">
+<field NAME=":TIMEBASE">
+<data>0 : 10000 : .001</data>
+</field>
+<field NAME=".INPUTS.IN1:TYPE">
+<data>"uint32"</data>
+</field>
+<field NAME=".INPUTS.IN1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN1:VALUE">
+<data>.-.-.-:TIMEBASE</data>
+</field>
+<field NAME=".INPUTS.IN2:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN2:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN3:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN3:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN4:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN4:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN5:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN5:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN6:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN6:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN7:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN7:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN8:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN8:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:SEG_LEN">
+<data>100</data>
+</field>
+<field NAME=".OUTPUTS.OUT1.PARAMETERS.PAR_1:VALUE">
+<data>"Out1 := sin((Time*1E-4)/3.14159)"</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:TYPE">
+<data>"uint8"</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:SEG_LEN">
+<data>100</data>
+</field>
+<field NAME=".OUTPUTS.OUT2.PARAMETERS.PAR_1:VALUE">
+<data>"Out2 := (Time*1E-5)%2"</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:SAMPLES">
+<data>1</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT3.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT4.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:NAME">
+<data>"Out5"</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT5.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT6.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT7.PARAMETERS.PAR_1:NAME">
+<data>"Expression"</data>
+</field>
+<field NAME=".OUTPUTS.OUT7.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT8.PARAMETERS.PAR_1:VALUE">
+<data>"1"</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_NI6259" NAME="MARTE_NI6259"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_GENERIC" NAME="MARTE_SIM_G"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_STREAM" NAME="MARTE_STREAM"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="NUMERIC" TAGS="BEO" USAGE="ANY">
+<data>*, 123</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT" NAME="PLASMA"/>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_PYTHON_GENERIC" NAME="PYGAM">
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>"pid"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:NAME">
+<data>"Parameters.Kp"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>1D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:NAME">
+<data>"Parameters.Ki"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:VALUE">
+<data>0D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:NAME">
+<data>"Parameters.Kd"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:VALUE">
+<data>0D0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:NAME">
+<data>"Parameters.T"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:VALUE">
+<data>.001D0</data>
+</field>
+<field NAME=".INPUTS.IN1:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".INPUTS.IN1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.IN1:NAME">
+<data>"Input"</data>
+</field>
+<field NAME=".INPUTS.IN2:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN3:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN4:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN5:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN6:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN7:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".INPUTS.IN8:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:NAME">
+<data>"Output"</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:TYPE">
+<data>"int32"</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:DIMENSIONS">
+<data>-1</data>
+</field>
+<field NAME=".OUTPUTS.OUT8:SEG_LEN">
+<data>0</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_RTNIN" NAME="RTNIN">
+<field NAME=":TIMEBASE">
+<data>0 : 10000 : .1</data>
+</field>
+<field NAME=":PRINT_DEBUG">
+<data>"ENABLED"</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_RTNOUT" NAME="RTNOUT">
+<field NAME=":TIMEBASE">
+<data>0 : 1000000 : .1</data>
+</field>
+<field NAME=".INPUTS.IN1:VALUE">
+<data>\TOP:DAC_SIGNAL</data>
+</field>
+<field NAME=":PRINT_DEBUG">
+<data>"ENABLED"</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_GENERIC" NAME="SIMU"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="SISSI" USAGE="SIGNAL">
+<data>Build_Signal([0Q,1Q,2Q,3Q,4Q,5Q,6Q,7Q,8Q,9Q,10Q,11Q,12Q,13Q,14Q,15Q,16Q,17Q,18Q,19Q,20Q,21Q,22Q,23Q,24Q,25Q,26Q,27Q,28Q,29Q,30Q,31Q,32Q,33Q,34Q,35Q,36Q,37Q,38Q,39Q,40Q,41Q,42Q,43Q,44Q,45Q,46Q,47Q,48Q,49Q,50Q,51Q,52Q,53Q,54Q,55Q,56Q,57Q,58Q,59Q,60Q,61Q,62Q,63Q,64Q,65Q,66Q,67Q,68Q,69Q,70Q,71Q,72Q,73Q,74Q,75Q,76Q,77Q,78Q,79Q,80Q,81Q,82Q,83Q,84Q,85Q,86Q,87Q,88Q,89Q,90Q,91Q,92Q,93Q,94Q,95Q,96Q,97Q,98Q,99Q,100Q,101Q,102Q,103Q,104Q,105Q,106Q,107Q,108Q,109Q,110Q,111Q,112Q,113Q,114Q,115Q,116Q,117Q,118Q,119Q,120Q,121Q,122Q,123Q,124Q,125Q,126Q,127Q,128Q,129Q,130Q,131Q,132Q,133Q,134Q,135Q,136Q,137Q,138Q,139Q,140Q,141Q,142Q,143Q,144Q,145Q,146Q,147Q,148Q,149Q,150Q,151Q,152Q,153Q,154Q,155Q,156Q,157Q,158Q,159Q,160Q,161Q,162Q,163Q,164Q,165Q,166Q,167Q,168Q,169Q,170Q,171Q,172Q,173Q,174Q,175Q,176Q,177Q,178Q,179Q,180Q,181Q,182Q,183Q,184Q,185Q,186Q,187Q,188Q,189Q,190Q,191Q,192Q,193Q,194Q,195Q,196Q,197Q,198Q,199Q,200Q,201Q,202Q,203Q,204Q,205Q,206Q,207Q,208Q,209Q,210Q,211Q,212Q,213Q,214Q,215Q,216Q,217Q,218Q,219Q,220Q,221Q,222Q,223Q,224Q,225Q,226Q,227Q,228Q,229Q,230Q,231Q,232Q,233Q,234Q,235Q,236Q,237Q,238Q,239Q,240Q,241Q,242Q,243Q,244Q,245Q,246Q,247Q,248Q,249Q,250Q,251Q,252Q,253Q,254Q,255Q,256Q,257Q,258Q,259Q,260Q,261Q,262Q,263Q,264Q,265Q,266Q,267Q,268Q,269Q,270Q,271Q,272Q,273Q,274Q,275Q,276Q,277Q,278Q,279Q,280Q,281Q,282Q,283Q,284Q,285Q,286Q,287Q,288Q,289Q,290Q,291Q,292Q,293Q,294Q,295Q,296Q,297Q,298Q,299Q,300Q,301Q,302Q,303Q,304Q,305Q,306Q,307Q,308Q,309Q,310Q,311Q,312Q,313Q,314Q,315Q,316Q,317Q,318Q,319Q,320Q,321Q,322Q,323Q,324Q,325Q,326Q,327Q,328Q,329Q,330Q,331Q,332Q,333Q,334Q,335Q,336Q,337Q,338Q,339Q,340Q,341Q,342Q,343Q,344Q,345Q,346Q,347Q,348Q,349Q,350Q,351Q,352Q,353Q,354Q,355Q,356Q,357Q,358Q,359Q,360Q,361Q,362Q,363Q,364Q,365Q,366Q,367Q,368Q,369Q,370Q,371Q,372Q,373Q,374Q,375Q,376Q,377Q,378Q,379Q,380Q,381Q,382Q,383Q,384Q,385Q,386Q,387Q,388Q,389Q,390Q,391Q,392Q,393Q,394Q,395Q,396Q,397Q,398Q,399Q,400Q,401Q,402Q,403Q,404Q,405Q,406Q,407Q,408Q,409Q,410Q,411Q,412Q,413Q,414Q,415Q,416Q,417Q,418Q,419Q,420Q,421Q,422Q,423Q,424Q,425Q,426Q,427Q,428Q,429Q,430Q,431Q,432Q,433Q,434Q,435Q,436Q,437Q,438Q,439Q,440Q,441Q,442Q,443Q,444Q,445Q,446Q,447Q,448Q,449Q,450Q,451Q,452Q,453Q,454Q,455Q,456Q,457Q,458Q,459Q,460Q,461Q,462Q,463Q,464Q,465Q,466Q,467Q,468Q,469Q,470Q,471Q,472Q,473Q,474Q,475Q,476Q,477Q,478Q,479Q,480Q,481Q,482Q,483Q,484Q,485Q,486Q,487Q,488Q,489Q,490Q,491Q,492Q,493Q,494Q,495Q,496Q,497Q,498Q,499Q,500Q,501Q,502Q,503Q,504Q,505Q,506Q,507Q,508Q,509Q,510Q,511Q,512Q,513Q,514Q,515Q,516Q,517Q,518Q,519Q,520Q,521Q,522Q,523Q,524Q,525Q,526Q,527Q,528Q,529Q,530Q,531Q,532Q,533Q,534Q,535Q,536Q,537Q,538Q,539Q,540Q,541Q,542Q,543Q,544Q,545Q,546Q,547Q,548Q,549Q,550Q,551Q,552Q,553Q,554Q,555Q,556Q,557Q,558Q,559Q,560Q,561Q,562Q,563Q,564Q,565Q,566Q,567Q,568Q,569Q,570Q,571Q,572Q,573Q,574Q,575Q,576Q,577Q,578Q,579Q,580Q,581Q,582Q,583Q,584Q,585Q,586Q,587Q,588Q,589Q,590Q,591Q,592Q,593Q,594Q,595Q,596Q,597Q,598Q,599Q,600Q,601Q,602Q,603Q,604Q,605Q,606Q,607Q,608Q,609Q,610Q,611Q,612Q,613Q,614Q,615Q,616Q,617Q,618Q,619Q,620Q,621Q,622Q,623Q,624Q,625Q,626Q,627Q,628Q,629Q,630Q,631Q,632Q,633Q,634Q,635Q,636Q,637Q,638Q,639Q,640Q,641Q,642Q,643Q,644Q,645Q,646Q,647Q,648Q,649Q,650Q,651Q,652Q,653Q,654Q,655Q,656Q,657Q,658Q,659Q,660Q,661Q,662Q,663Q,664Q,665Q,666Q,667Q,668Q,669Q,670Q,671Q,672Q,673Q,674Q,675Q,676Q,677Q,678Q,679Q,680Q,681Q,682Q,683Q,684Q,685Q,686Q,687Q,688Q,689Q,690Q,691Q,692Q,693Q,694Q,695Q,696Q,697Q,698Q,699Q,700Q,701Q,702Q,703Q,704Q,705Q,706Q,707Q,708Q,709Q,710Q,711Q,712Q,713Q,714Q,715Q,716Q,717Q,718Q,719Q,720Q,721Q,722Q,723Q,724Q,725Q,726Q,727Q,728Q,729Q,730Q,731Q,732Q,733Q,734Q,735Q,736Q,737Q,738Q,739Q,740Q,741Q,742Q,743Q,744Q,745Q,746Q,747Q,748Q,749Q,750Q,751Q,752Q,753Q,754Q,755Q,756Q,757Q,758Q,759Q,760Q,761Q,762Q,763Q,764Q,765Q,766Q,767Q,768Q,769Q,770Q,771Q,772Q,773Q,774Q,775Q,776Q,777Q,778Q,779Q,780Q,781Q,782Q,783Q,784Q,785Q,786Q,787Q,788Q,789Q,790Q,791Q,792Q,793Q,794Q,795Q,796Q,797Q,798Q,799Q,800Q,801Q,802Q,803Q,804Q,805Q,806Q,807Q,808Q,809Q,810Q,811Q,812Q,813Q,814Q,815Q,816Q,817Q,818Q,819Q,820Q,821Q,822Q,823Q,824Q,825Q,826Q,827Q,828Q,829Q,830Q,831Q,832Q,833Q,834Q,835Q,836Q,837Q,838Q,839Q,840Q,841Q,842Q,843Q,844Q,845Q,846Q,847Q,848Q,849Q,850Q,851Q,852Q,853Q,854Q,855Q,856Q,857Q,858Q,859Q,860Q,861Q,862Q,863Q,864Q,865Q,866Q,867Q,868Q,869Q,870Q,871Q,872Q,873Q,874Q,875Q,876Q,877Q,878Q,879Q,880Q,881Q,882Q,883Q,884Q,885Q,886Q,887Q,888Q,889Q,890Q,891Q,892Q,893Q,894Q,895Q,896Q,897Q,898Q,899Q,900Q,901Q,902Q,903Q,904Q,905Q,906Q,907Q,908Q,909Q,910Q,911Q,912Q,913Q,914Q,915Q,916Q,917Q,918Q,919Q,920Q,921Q,922Q,923Q,924Q,925Q,926Q,927Q,928Q,929Q,930Q,931Q,932Q,933Q,934Q,935Q,936Q,937Q,938Q,939Q,940Q,941Q,942Q,943Q,944Q,945Q,946Q,947Q,948Q,949Q,950Q,951Q,952Q,953Q,954Q,955Q,956Q,957Q,958Q,959Q,960Q,961Q,962Q,963Q,964Q,965Q,966Q,967Q,968Q,969Q,970Q,971Q,972Q,973Q,974Q,975Q,976Q,977Q,978Q,979Q,980Q,981Q,982Q,983Q,984Q,985Q,986Q,987Q,988Q,989Q,990Q,991Q,992Q,993Q,994Q,995Q,996Q,997Q,998Q,999Q,1000Q,1001Q,1002Q,1003Q,1004Q,1005Q,1006Q,1007Q,1008Q,1009Q,1010Q,1011Q,1012Q,1013Q,1014Q,1015Q,1016Q,1017Q,1018Q,1019Q,1020Q,1021Q,1022Q,1023Q,1024Q,1025Q,1026Q,1027Q,1028Q,1029Q,1030Q,1031Q,1032Q,1033Q,1034Q,1035Q,1036Q,1037Q,1038Q,1039Q,1040Q,1041Q,1042Q,1043Q,1044Q,1045Q,1046Q,1047Q,1048Q,1049Q,1050Q,1051Q,1052Q,1053Q,1054Q,1055Q,1056Q,1057Q,1058Q,1059Q,1060Q,1061Q,1062Q,1063Q,1064Q,1065Q,1066Q,1067Q,1068Q,1069Q,1070Q,1071Q,1072Q,1073Q,1074Q,1075Q,1076Q,1077Q,1078Q,1079Q,1080Q,1081Q,1082Q,1083Q,1084Q,1085Q,1086Q,1087Q,1088Q,1089Q,1090Q,1091Q,1092Q,1093Q,1094Q,1095Q,1096Q,1097Q,1098Q,1099Q,0Q,1Q,2Q,3Q,4Q,5Q,6Q,7Q,8Q,9Q,10Q,11Q,12Q,13Q,14Q,15Q,16Q,17Q,18Q,19Q,20Q,21Q,22Q,23Q,24Q,25Q,26Q,27Q,28Q,29Q,30Q,31Q,32Q,33Q,34Q,35Q,36Q,37Q,38Q,39Q,40Q,41Q,42Q,43Q,44Q,45Q,46Q,47Q,48Q,49Q,50Q,51Q,52Q,53Q,54Q,55Q,56Q,57Q,58Q,59Q,60Q,61Q,62Q,63Q,64Q,65Q,66Q,67Q,68Q,69Q,70Q,71Q,72Q,73Q,74Q,75Q,76Q,77Q,78Q,79Q,80Q,81Q,82Q,83Q,84Q,85Q,86Q,87Q,88Q,89Q,90Q,91Q,92Q,93Q,94Q,95Q,96Q,97Q,98Q,99Q], *, [0Q,1Q,2Q,3Q,4Q,5Q,6Q,7Q,8Q,9Q,10Q,11Q,12Q,13Q,14Q,15Q,16Q,17Q,18Q,19Q,20Q,21Q,22Q,23Q,24Q,25Q,26Q,27Q,28Q,29Q,30Q,31Q,32Q,33Q,34Q,35Q,36Q,37Q,38Q,39Q,40Q,41Q,42Q,43Q,44Q,45Q,46Q,47Q,48Q,49Q,50Q,51Q,52Q,53Q,54Q,55Q,56Q,57Q,58Q,59Q,60Q,61Q,62Q,63Q,64Q,65Q,66Q,67Q,68Q,69Q,70Q,71Q,72Q,73Q,74Q,75Q,76Q,77Q,78Q,79Q,80Q,81Q,82Q,83Q,84Q,85Q,86Q,87Q,88Q,89Q,90Q,91Q,92Q,93Q,94Q,95Q,96Q,97Q,98Q,99Q,100Q,101Q,102Q,103Q,104Q,105Q,106Q,107Q,108Q,109Q,110Q,111Q,112Q,113Q,114Q,115Q,116Q,117Q,118Q,119Q,120Q,121Q,122Q,123Q,124Q,125Q,126Q,127Q,128Q,129Q,130Q,131Q,132Q,133Q,134Q,135Q,136Q,137Q,138Q,139Q,140Q,141Q,142Q,143Q,144Q,145Q,146Q,147Q,148Q,149Q,150Q,151Q,152Q,153Q,154Q,155Q,156Q,157Q,158Q,159Q,160Q,161Q,162Q,163Q,164Q,165Q,166Q,167Q,168Q,169Q,170Q,171Q,172Q,173Q,174Q,175Q,176Q,177Q,178Q,179Q,180Q,181Q,182Q,183Q,184Q,185Q,186Q,187Q,188Q,189Q,190Q,191Q,192Q,193Q,194Q,195Q,196Q,197Q,198Q,199Q,200Q,201Q,202Q,203Q,204Q,205Q,206Q,207Q,208Q,209Q,210Q,211Q,212Q,213Q,214Q,215Q,216Q,217Q,218Q,219Q,220Q,221Q,222Q,223Q,224Q,225Q,226Q,227Q,228Q,229Q,230Q,231Q,232Q,233Q,234Q,235Q,236Q,237Q,238Q,239Q,240Q,241Q,242Q,243Q,244Q,245Q,246Q,247Q,248Q,249Q,250Q,251Q,252Q,253Q,254Q,255Q,256Q,257Q,258Q,259Q,260Q,261Q,262Q,263Q,264Q,265Q,266Q,267Q,268Q,269Q,270Q,271Q,272Q,273Q,274Q,275Q,276Q,277Q,278Q,279Q,280Q,281Q,282Q,283Q,284Q,285Q,286Q,287Q,288Q,289Q,290Q,291Q,292Q,293Q,294Q,295Q,296Q,297Q,298Q,299Q,300Q,301Q,302Q,303Q,304Q,305Q,306Q,307Q,308Q,309Q,310Q,311Q,312Q,313Q,314Q,315Q,316Q,317Q,318Q,319Q,320Q,321Q,322Q,323Q,324Q,325Q,326Q,327Q,328Q,329Q,330Q,331Q,332Q,333Q,334Q,335Q,336Q,337Q,338Q,339Q,340Q,341Q,342Q,343Q,344Q,345Q,346Q,347Q,348Q,349Q,350Q,351Q,352Q,353Q,354Q,355Q,356Q,357Q,358Q,359Q,360Q,361Q,362Q,363Q,364Q,365Q,366Q,367Q,368Q,369Q,370Q,371Q,372Q,373Q,374Q,375Q,376Q,377Q,378Q,379Q,380Q,381Q,382Q,383Q,384Q,385Q,386Q,387Q,388Q,389Q,390Q,391Q,392Q,393Q,394Q,395Q,396Q,397Q,398Q,399Q,400Q,401Q,402Q,403Q,404Q,405Q,406Q,407Q,408Q,409Q,410Q,411Q,412Q,413Q,414Q,415Q,416Q,417Q,418Q,419Q,420Q,421Q,422Q,423Q,424Q,425Q,426Q,427Q,428Q,429Q,430Q,431Q,432Q,433Q,434Q,435Q,436Q,437Q,438Q,439Q,440Q,441Q,442Q,443Q,444Q,445Q,446Q,447Q,448Q,449Q,450Q,451Q,452Q,453Q,454Q,455Q,456Q,457Q,458Q,459Q,460Q,461Q,462Q,463Q,464Q,465Q,466Q,467Q,468Q,469Q,470Q,471Q,472Q,473Q,474Q,475Q,476Q,477Q,478Q,479Q,480Q,481Q,482Q,483Q,484Q,485Q,486Q,487Q,488Q,489Q,490Q,491Q,492Q,493Q,494Q,495Q,496Q,497Q,498Q,499Q,500Q,501Q,502Q,503Q,504Q,505Q,506Q,507Q,508Q,509Q,510Q,511Q,512Q,513Q,514Q,515Q,516Q,517Q,518Q,519Q,520Q,521Q,522Q,523Q,524Q,525Q,526Q,527Q,528Q,529Q,530Q,531Q,532Q,533Q,534Q,535Q,536Q,537Q,538Q,539Q,540Q,541Q,542Q,543Q,544Q,545Q,546Q,547Q,548Q,549Q,550Q,551Q,552Q,553Q,554Q,555Q,556Q,557Q,558Q,559Q,560Q,561Q,562Q,563Q,564Q,565Q,566Q,567Q,568Q,569Q,570Q,571Q,572Q,573Q,574Q,575Q,576Q,577Q,578Q,579Q,580Q,581Q,582Q,583Q,584Q,585Q,586Q,587Q,588Q,589Q,590Q,591Q,592Q,593Q,594Q,595Q,596Q,597Q,598Q,599Q,600Q,601Q,602Q,603Q,604Q,605Q,606Q,607Q,608Q,609Q,610Q,611Q,612Q,613Q,614Q,615Q,616Q,617Q,618Q,619Q,620Q,621Q,622Q,623Q,624Q,625Q,626Q,627Q,628Q,629Q,630Q,631Q,632Q,633Q,634Q,635Q,636Q,637Q,638Q,639Q,640Q,641Q,642Q,643Q,644Q,645Q,646Q,647Q,648Q,649Q,650Q,651Q,652Q,653Q,654Q,655Q,656Q,657Q,658Q,659Q,660Q,661Q,662Q,663Q,664Q,665Q,666Q,667Q,668Q,669Q,670Q,671Q,672Q,673Q,674Q,675Q,676Q,677Q,678Q,679Q,680Q,681Q,682Q,683Q,684Q,685Q,686Q,687Q,688Q,689Q,690Q,691Q,692Q,693Q,694Q,695Q,696Q,697Q,698Q,699Q,700Q,701Q,702Q,703Q,704Q,705Q,706Q,707Q,708Q,709Q,710Q,711Q,712Q,713Q,714Q,715Q,716Q,717Q,718Q,719Q,720Q,721Q,722Q,723Q,724Q,725Q,726Q,727Q,728Q,729Q,730Q,731Q,732Q,733Q,734Q,735Q,736Q,737Q,738Q,739Q,740Q,741Q,742Q,743Q,744Q,745Q,746Q,747Q,748Q,749Q,750Q,751Q,752Q,753Q,754Q,755Q,756Q,757Q,758Q,759Q,760Q,761Q,762Q,763Q,764Q,765Q,766Q,767Q,768Q,769Q,770Q,771Q,772Q,773Q,774Q,775Q,776Q,777Q,778Q,779Q,780Q,781Q,782Q,783Q,784Q,785Q,786Q,787Q,788Q,789Q,790Q,791Q,792Q,793Q,794Q,795Q,796Q,797Q,798Q,799Q,800Q,801Q,802Q,803Q,804Q,805Q,806Q,807Q,808Q,809Q,810Q,811Q,812Q,813Q,814Q,815Q,816Q,817Q,818Q,819Q,820Q,821Q,822Q,823Q,824Q,825Q,826Q,827Q,828Q,829Q,830Q,831Q,832Q,833Q,834Q,835Q,836Q,837Q,838Q,839Q,840Q,841Q,842Q,843Q,844Q,845Q,846Q,847Q,848Q,849Q,850Q,851Q,852Q,853Q,854Q,855Q,856Q,857Q,858Q,859Q,860Q,861Q,862Q,863Q,864Q,865Q,866Q,867Q,868Q,869Q,870Q,871Q,872Q,873Q,874Q,875Q,876Q,877Q,878Q,879Q,880Q,881Q,882Q,883Q,884Q,885Q,886Q,887Q,888Q,889Q,890Q,891Q,892Q,893Q,894Q,895Q,896Q,897Q,898Q,899Q,900Q,901Q,902Q,903Q,904Q,905Q,906Q,907Q,908Q,909Q,910Q,911Q,912Q,913Q,914Q,915Q,916Q,917Q,918Q,919Q,920Q,921Q,922Q,923Q,924Q,925Q,926Q,927Q,928Q,929Q,930Q,931Q,932Q,933Q,934Q,935Q,936Q,937Q,938Q,939Q,940Q,941Q,942Q,943Q,944Q,945Q,946Q,947Q,948Q,949Q,950Q,951Q,952Q,953Q,954Q,955Q,956Q,957Q,958Q,959Q,960Q,961Q,962Q,963Q,964Q,965Q,966Q,967Q,968Q,969Q,970Q,971Q,972Q,973Q,974Q,975Q,976Q,977Q,978Q,979Q,980Q,981Q,982Q,983Q,984Q,985Q,986Q,987Q,988Q,989Q,990Q,991Q,992Q,993Q,994Q,995Q,996Q,997Q,998Q,999Q,1000Q,1001Q,1002Q,1003Q,1004Q,1005Q,1006Q,1007Q,1008Q,1009Q,1010Q,1011Q,1012Q,1013Q,1014Q,1015Q,1016Q,1017Q,1018Q,1019Q,1020Q,1021Q,1022Q,1023Q,1024Q,1025Q,1026Q,1027Q,1028Q,1029Q,1030Q,1031Q,1032Q,1033Q,1034Q,1035Q,1036Q,1037Q,1038Q,1039Q,1040Q,1041Q,1042Q,1043Q,1044Q,1045Q,1046Q,1047Q,1048Q,1049Q,1050Q,1051Q,1052Q,1053Q,1054Q,1055Q,1056Q,1057Q,1058Q,1059Q,1060Q,1061Q,1062Q,1063Q,1064Q,1065Q,1066Q,1067Q,1068Q,1069Q,1070Q,1071Q,1072Q,1073Q,1074Q,1075Q,1076Q,1077Q,1078Q,1079Q,1080Q,1081Q,1082Q,1083Q,1084Q,1085Q,1086Q,1087Q,1088Q,1089Q,1090Q,1091Q,1092Q,1093Q,1094Q,1095Q,1096Q,1097Q,1098Q,1099Q,0Q,1Q,2Q,3Q,4Q,5Q,6Q,7Q,8Q,9Q,10Q,11Q,12Q,13Q,14Q,15Q,16Q,17Q,18Q,19Q,20Q,21Q,22Q,23Q,24Q,25Q,26Q,27Q,28Q,29Q,30Q,31Q,32Q,33Q,34Q,35Q,36Q,37Q,38Q,39Q,40Q,41Q,42Q,43Q,44Q,45Q,46Q,47Q,48Q,49Q,50Q,51Q,52Q,53Q,54Q,55Q,56Q,57Q,58Q,59Q,60Q,61Q,62Q,63Q,64Q,65Q,66Q,67Q,68Q,69Q,70Q,71Q,72Q,73Q,74Q,75Q,76Q,77Q,78Q,79Q,80Q,81Q,82Q,83Q,84Q,85Q,86Q,87Q,88Q,89Q,90Q,91Q,92Q,93Q,94Q,95Q,96Q,97Q,98Q,99Q])</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT,COMPRESS_SEGMENTS" NAME="STREAMED" TAGS="STREAMED" USAGE="SIGNAL">
+<data>Build_Signal([10.,12.,14.,16.,18.,20.,22.,24.,26.,28.,10.,12.,14.,16.,18.,20.,22.,24.,26.,28.], *, [1697441136324Q,1697441136853Q,1697441137357Q,1697441137862Q,1697441138366Q,1697441138869Q,1697441139373Q,1697441139877Q,1697441140381Q,1697441140885Q,1697441578648Q,1697441579157Q,1697441579660Q,1697441580165Q,1697441580669Q,1697441581173Q,1697441581676Q,1697441582180Q,1697441582684Q,1697441583187Q])</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="STREAMED1" USAGE="SIGNAL">
+<data>Build_Signal([20.,22.,24.,26.,28.,30.,32.,34.,36.,38.,20.,22.,24.,26.,28.,30.,32.,34.,36.,38.], *, [1697441136324Q,1697441136853Q,1697441137357Q,1697441137862Q,1697441138366Q,1697441138869Q,1697441139373Q,1697441139877Q,1697441140381Q,1697441140885Q,1697441578648Q,1697441579157Q,1697441579660Q,1697441580165Q,1697441580669Q,1697441581173Q,1697441581676Q,1697441582180Q,1697441582684Q,1697441583187Q])</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="STRUCT" USAGE="NUMERIC"/>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="STRUCT_T" USAGE="TEXT">
+<data>"SSS"</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="RFXTiming" NAME="SUP_TIMING" TAGS="TIMING_SUPERVISOR">
+<field NAME=":EVENT_NAMES">
+<data>["TEST"]</data>
+</field>
+<field NAME=":EVENT_TIMES">
+<data>["\\TEST::TOP:DIO4.OUT_EV_SW:TIME"]</data>
+</field>
+</device>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="TITTI" TAGS="TTTTTTT" USAGE="TASK">
+<data>WRITE(*, "papapbum")</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="TR10" NAME="TR10">
+<field NAME=":BOARD_ID">
+<data>0</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_SOURCE">
+<data>0</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>\TOP:DIO4_5.CHANNEL_1:CLOCK</data>
+</field>
+<field NAME=":FREQUENCY">
+<data>10000.</data>
+</field>
+<field NAME=":USE_TIME">
+<data>"TRUE"</data>
+</field>
+<field NAME=".CHANNEL_01:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_01:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_02:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_02:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_03:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_03:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_04:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_04:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_05:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_05:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_06:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_06:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_07:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_07:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_08:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_08:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_09:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_09:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_10:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_10:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_11:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_11:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_12:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_12:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_13:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_13:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_14:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_14:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_15:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_15:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_16:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_16:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=":TRIG_EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:TR10))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:TR10))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="TR10" NAME="TR10_1" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>1</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_MODE">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=":TRIG_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_SOURCE">
+<data>0</data>
+</field>
+<field NAME=":CLOCK_SOURCE">
+<data>\TOP:DIO4_5.CHANNEL_1:CLOCK</data>
+</field>
+<field NAME=":FREQUENCY">
+<data>10000.</data>
+</field>
+<field NAME=":USE_TIME">
+<data>"TRUE"</data>
+</field>
+<field NAME=".CHANNEL_01:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_01:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_02:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_02:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_03:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_03:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_04:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_04:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_05:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_05:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_06:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_06:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_07:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_07:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_08:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_08:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_09:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_09:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_10:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_10:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_11:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_11:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_12:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_12:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_13:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_13:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_14:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_14:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_15:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_15:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_16:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_16:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=":TRIG_EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:TR10_1))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:TR10_1))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="TR10" NAME="TR10_2" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>2</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_SOURCE">
+<data>0</data>
+</field>
+<field NAME=":FREQUENCY">
+<data>10000.</data>
+</field>
+<field NAME=":USE_TIME">
+<data>"TRUE"</data>
+</field>
+<field NAME=".CHANNEL_01:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_01:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_02:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_02:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_03:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_03:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_04:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_04:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_05:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_05:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_06:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_06:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_07:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_07:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_08:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_08:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_09:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_09:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_10:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_10:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_11:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_11:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_12:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_12:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_13:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_13:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_14:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_14:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_15:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_15:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_16:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_16:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=":TRIG_EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:TR10_2))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:TR10_2))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="TR10" NAME="TR10_3" STATE="OFF">
+<field NAME=":BOARD_ID">
+<data>3</data>
+</field>
+<field NAME=":SW_MODE">
+<data>"LOCAL"</data>
+</field>
+<field NAME=":CLOCK_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_MODE">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=":TRIG_SOURCE">
+<data>0</data>
+</field>
+<field NAME=":FREQUENCY">
+<data>10000.</data>
+</field>
+<field NAME=":USE_TIME">
+<data>"TRUE"</data>
+</field>
+<field NAME=".CHANNEL_01:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_01:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_02:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_02:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_03:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_03:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_04:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_04:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_05:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_05:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_06:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_06:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_07:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_07:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_08:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_08:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_09:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_09:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_10:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_10:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_11:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_11:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_12:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_12:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_13:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_13:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_14:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_14:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_15:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_15:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=".CHANNEL_16:START_TIME">
+<data>0.</data>
+</field>
+<field NAME=".CHANNEL_16:END_TIME">
+<data>1.</data>
+</field>
+<field NAME=":TRIG_EDGE">
+<data>"RISING"</data>
+</field>
+<field NAME=":INIT_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "INIT", 50, ""), Build_Method(*, "INIT", \TOP:TR10_3))</data>
+</field>
+<field NAME=":STORE_ACTION">
+<data>Build_Action(Build_Dispatch(2, "CAMAC_SERVER", "STORE", 50, ""), Build_Method(*, "STORE", \TOP:TR10_3))</data>
+</field>
+</device>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="UZZO" TAGS="ASSSSSSSSS,ASSSS" USAGE="AXIS">
+<data>0 : 1000 : .1</data>
+</member>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="WINNI" TAGS="WAAW" USAGE="WINDOW">
+<data>Build_Window(0, 100, 5)</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_WRTDTIMER" NAME="WRTDTIMER">
+<field NAME=":TIMEBASE">
+<data>.-.PARAMETERS.PAR_7:VALUE + .-.PARAMETERS.PAR_8:VALUE : * : .-.PARAMETERS.PAR_9:VALUE</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>"CLOCK_REALTIME"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>127</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:NAME">
+<data>"UdpPort"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_3:VALUE">
+<data>5044</data>
+</field>
+<field NAME=".PARAMETERS.PAR_4:VALUE">
+<data>"*"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5:VALUE">
+<data>"224.0.23.159"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_6:VALUE">
+<data>0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_7:VALUE">
+<data>0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_8:VALUE">
+<data>0</data>
+</field>
+<field NAME=".PARAMETERS.PAR_9:VALUE">
+<data>1.</data>
+</field>
+</device>
+</tree>
