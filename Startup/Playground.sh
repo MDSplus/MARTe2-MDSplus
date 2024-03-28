@@ -3,6 +3,10 @@ if [ -z ${MARTe2_Components_DIR+x} ]; then echo "Please set the MARTe2_Component
 
 if [ -z ${MARTE_DIR+x} ]; then export MARTE_DIR=.; fi;
 
+OPEN62541_DIR=/opt/open62541-1.0
+OPEN62541_INCLUDE=$OPEN62541_DIR/build
+OPEN62541_LIB=$OPEN62541_DIR/build/bin
+
 
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/.
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTE_DIR/../GAMs/SimulinkWrapperGAM/
@@ -57,8 +61,11 @@ LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Componen
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/GAMs/WaveformGAM/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/GAMs/BaseLib2GAM/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/GAMs/ConversionGAM/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/GAMs/DoubleHandshakeGAM/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/Interfaces/BaseLib2Wrapper/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/Interfaces/EPICS/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/Interfaces/OPCUA/
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/DataSources/OPCUADataSource/
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MARTe2_Components_DIR/Build/x86-linux/Components/DataSources/MDSWriter
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/MARTe2/MARTe2-rfx-components/Build/x86-linux/Components/GAMs/MegavoltGAM
 
