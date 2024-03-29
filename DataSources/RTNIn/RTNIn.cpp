@@ -122,14 +122,20 @@ bool RTNIn::Synchronise() {
 #ifdef DEBUG
     REPORT_ERROR(ErrorManagement::Debug, "Synchronise");
 #endif
+printf("SYNCHRONZE\n");
     mutex.FastLock();
-    while(!samplesReady)
+    if(isSynch)
     {
-        mutex.FastUnLock();
-        eventSem.ResetWait(TTInfiniteWait);
-        mutex.FastLock();
+        while(!samplesReady)
+        {
+            mutex.FastUnLock();
+            eventSem.ResetWait(TTInfiniteWait);
+            mutex.FastLock();
+        }
+        samplesReady = false;
     }
     memcpy(dataSourceMemory, buffer, totBufBytes);
+printf("SYNCHRONZE FATTO\n");
     mutex.FastUnLock();
    return true;
 }
@@ -145,7 +151,7 @@ bool RTNIn::Initialise(StructuredDataI& data) {
     if (ok) {
          ok = data.Read("CpuMask", cpuMask);
         if (!ok) {
-            REPORT_ERROR(ErrorManagement::Information, "CpuMask not specified for RTNIn");
+            REPORT_ERROR(ErrorManagement::Information, "CpuMask not specified for RTNIn - set to 0xff");
             cpuMask = 0xff;
             ok = true;
         }
@@ -154,26 +160,28 @@ bool RTNIn::Initialise(StructuredDataI& data) {
         uint32 synchIn;
         ok = data.Read("IsSynch", synchIn);
         if (!ok) {
-            REPORT_ERROR(ErrorManagement::Information, "IsSynch shall be specified");
+            REPORT_ERROR(ErrorManagement::ParametersError, "IsSynch shall be specified");
         }
         isSynch = synchIn > 0;
     }
     if(ok) {
         ok = data.Read("CircuitId", circuitId);
        if (!ok) {
-            REPORT_ERROR(ErrorManagement::Information, "Id shall be specified");
+            REPORT_ERROR(ErrorManagement::ParametersError, "CircuitId shall be specified");
         }
     }
     if(ok) {
         ok = data.Read("Ip", ipAddr);
        if (!ok) {
-            REPORT_ERROR(ErrorManagement::Information, "IpAddr shall be specified");
+            REPORT_ERROR(ErrorManagement::Information, "Ip not specified. Locfalhost assumed.");
+            ipAddr = "localhost";
+            ok = true;
         }
     }
     if(ok) {
         ok = data.Read("Port", port);
        if (!ok) {
-            REPORT_ERROR(ErrorManagement::Information, "Port shall be specified");
+            REPORT_ERROR(ErrorManagement::ParametersError, "Port shall be specified");
         }
     }
     if(ok)
@@ -234,6 +242,7 @@ bool RTNIn::SetConfiguredDatabase(StructuredDataI& data) {
         }
         dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         buffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
+        memset(buffer, 0, totBufBytes);
         udpBuffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(maxPacketLen * sizeof(char8)));
 	}
     if(ok) {
@@ -303,7 +312,7 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
             uint32 currPacketOffs = 16;
             uint16 numPacketSignals = *(uint16*)(&udpBuffer[currPacketOffs]);
             currPacketOffs+=sizeof(uint16);
-            samplesReady = false;
+//            samplesReady = false;
             mutex.FastLock();
             for(int sigIdx = 0; sigIdx < numPacketSignals; sigIdx++)
             {
@@ -313,7 +322,6 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                 currSigName[sigNameLen] = 0;
                 currPacketOffs += sigNameLen;
                 uint16 currSampleLen = *(uint16 *)&udpBuffer[currPacketOffs];
-                printf("CURR SAMPLE LEN: %d\n", currSampleLen);
                 currPacketOffs += sizeof(uint16);
                 int32 sigId = getSignalId(currSigName);
                 if(sigId == -1)
@@ -329,7 +337,6 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                     mutex.FastUnLock();                    
                     return err;
                 }
-                printf("%d  %d\n", currSamples[sigId] , samples[sigId]);
                 if(currSamples[sigId] < samples[sigId])
                 {
                     memcpy(buffer+offsets[sigId]+currSamples[sigId]*sampleByteSizes[sigId], udpBuffer+currPacketOffs, sampleByteSizes[sigId]);
@@ -341,8 +348,6 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                     {
                         memcpy(buffer+offsets[sigId]+(sampleIdx - 1)*sampleByteSizes[sigId], buffer+offsets[sigId]+sampleIdx*sampleByteSizes[sigId], sampleByteSizes[sigId]);
                     }
-                    printf("RICEVO %f (%d)\n", *(float *)(udpBuffer+currPacketOffs), currPacketOffs);
-                    printf("OFFSET TOT: %d (%d+%d)\n", offsets[sigId]+(samples[sigId] - 1)*sampleByteSizes[sigId], offsets[sigId], (samples[sigId] - 1)*sampleByteSizes[sigId]);
                     memcpy(buffer+offsets[sigId]+(samples[sigId] - 1)*sampleByteSizes[sigId], udpBuffer+currPacketOffs, sampleByteSizes[sigId]);
                }
                currPacketOffs += sampleByteSizes[sigId];
@@ -356,9 +361,9 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                     newSamplesReady = false;
                 }
             }
-            if(!samplesReady && newSamplesReady)
+            if(isSynch && !samplesReady && newSamplesReady)
             {
-                printf("POST!!!!\n");
+ //               printf("POST!!!!\n");
                 err = !eventSem.Post();
             }
             samplesReady = newSamplesReady;

@@ -35,9 +35,9 @@
  * No ckeck is performed on the signal data type and dimension, but the NumberOfSamples must be 1. They are sent as they are.
  * 
  * The following parameters are defined for every input signal: 
- * Ip: destination Ip Address
- * Port: destination Port
- * Id: CircuitIdentifier
+ * Ips: destination Ip Addresses 
+ * Ports: destination Ports (must be of the same number of elements of IP Addresses)
+ * Id: CircuitIdentifier (unique for signal)
  **/
 
 /*---------------------------------------------------------------------------*/
@@ -178,10 +178,9 @@ private:
     uint32 *packetLens;
     uint32 maxPacketLen;
     char8 *packet;
-    StreamString *ips;
-    uint32 *ports;
-    uint32 *circuitIds;
-    UDPSocket *udpSockets;  
+    uint32 *numIps;
+    uint32 **circuitIds;
+    UDPSocket **udpSockets;  
 
 
 };

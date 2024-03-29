@@ -18,6 +18,7 @@
 /*                         Project header includes                           */
 /*---------------------------------------------------------------------------*/
 #include "AdvancedErrorManagement.h"
+#include "StructuredDataIHelper.h"
 #include "CLASSMETHODREGISTER.h"
 #include "RTNOut.h"
 #include <stdio.h>
@@ -40,10 +41,8 @@ RTNOut::RTNOut() :
 	nOfSignals = 0;
     counter = 0;
     maxPacketLen = 0;
-    ips = NULL_PTR(StreamString *);
-    ports = NULL_PTR(uint32 *);
-    circuitIds = NULL_PTR(uint32 *);
-    udpSockets = NULL_PTR(UDPSocket *);
+    circuitIds = NULL_PTR(uint32 **);
+    udpSockets = NULL_PTR(UDPSocket **);
     packetLens= NULL_PTR(uint32 *);
     packet = NULL_PTR(char8 *);
         }
@@ -64,19 +63,21 @@ RTNOut::~RTNOut() {
     if (packet != NULL_PTR(char8 *)) {
         GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(packet));
     }
-    if(ips != NULL_PTR(StreamString *)) {
-        delete[] ips;
-    }
-    if (ports != NULL_PTR(uint32 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(ports));
-    }
-    if (circuitIds != NULL_PTR(uint32 *)) {
+    if (circuitIds != NULL_PTR(uint32 **)) {
+        for (uint32 i = 0; i < nOfSignals; i++)
+        {
+            GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(circuitIds[i]));
+        }
         GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(circuitIds));
     }
     if (packetLens != NULL_PTR(uint32 *)) {
         GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(packetLens));
     }
-    if(udpSockets != NULL_PTR(UDPSocket *)) {
+    if(udpSockets != NULL_PTR(UDPSocket **)) {
+       for (uint32 i = 0; i < nOfSignals; i++)
+        {
+            delete [] udpSockets[i];
+        } 
         delete[] udpSockets;
     }
 }
@@ -138,7 +139,6 @@ bool RTNOut::Synchronise()
     {
         uint32 currOffs = 16;
         memset(packet, 0, packetLens[sigIdx]);
-        *(int32 *)&packet[0] = circuitIds[sigIdx];
         *(int32 *)&packet[4] = counter;
 
         *(int16 *)&packet[currOffs] = 1; //1 signal per packet
@@ -149,12 +149,16 @@ bool RTNOut::Synchronise()
         currOffs += signalNames[sigIdx].Size();
         *(int16 *)(&packet[currOffs]) = sampleByteSizes[sigIdx];
         currOffs += sizeof(int16); 
-        printf("SPEDISCO %f\n", *(float *)&dataSourceMemory[offsets[sigIdx]]);
+//        printf("SPEDISCO %f\n", *(float *)&dataSourceMemory[offsets[sigIdx]]);
         memcpy(&packet[currOffs], &dataSourceMemory[offsets[sigIdx]], sampleByteSizes[sigIdx]);
-        if(!udpSockets[sigIdx].Write(packet, packetLens[sigIdx]))
-        {
-            REPORT_ERROR(ErrorManagement::FatalError,"Error sending UDP packet");
-            return false;
+        for (uint32 currIdx = 0; currIdx < numIps[sigIdx]; currIdx++)
+        { 
+            *(int32 *)&packet[0] = circuitIds[sigIdx][currIdx];
+            if(!udpSockets[sigIdx][currIdx].Write(packet, packetLens[sigIdx]))
+            {
+                REPORT_ERROR(ErrorManagement::FatalError,"Error sending UDP packet");
+                return false;
+            }
         }
     }
     return true;
@@ -172,7 +176,10 @@ bool RTNOut::PrepareNextState(const char8* const currentStateName, const char8* 
 
 bool RTNOut::Initialise(StructuredDataI& data) {
     bool ok = DataSourceI::Initialise(data);
-    if(ok)
+    StructuredDataIHelper helper(data, this);
+    StreamString *ips;
+    uint32 *ports;
+     if(ok)
     {
         ok = data.MoveRelative("Signals");
         if(!ok) {
@@ -182,33 +189,93 @@ bool RTNOut::Initialise(StructuredDataI& data) {
     if(ok)
     {
         nOfSignals = data.GetNumberOfChildren();
-        ips = new StreamString[nOfSignals];
-        ports = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
-        circuitIds = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
+        numIps = new uint32[nOfSignals];
+        udpSockets = new UDPSocket *[nOfSignals];
+        circuitIds = reinterpret_cast<uint32 **>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         for (uint32 sigIdx = 0u; (sigIdx < nOfSignals) && ok; sigIdx++) {
             ok = data.MoveRelative(data.GetChildName(sigIdx));
             if (!ok) {
                 REPORT_ERROR(ErrorManagement::ParametersError, "Cannot move to the children %u", sigIdx);
             }
             if (ok) {
-                ok = data.Read("Ip", ips[sigIdx]);
+                ok = helper.ReadArray("Ip", ips, numIps[sigIdx]);
                 if (!ok) {
-                    REPORT_ERROR(ErrorManagement::ParametersError, "Ip shall be specified for signal %d", sigIdx);
+                    ips = new StreamString[1];
+                    numIps[sigIdx] = 1;
+                    ok = data.Read("Ip", ips[0]);
+                    if(!ok)
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Ips array shall be specified for signal %d", sigIdx);
                 }
             }
+
             if (ok) {
-                ok = data.Read("Port", ports[sigIdx]);
+                uint32 numPorts;
+               ok =helper.ReadArray("Port", ports, numPorts);
                 if (!ok) {
-                    REPORT_ERROR(ErrorManagement::ParametersError, "Port shall be specified for signal %d", sigIdx);
+                    ports = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(sizeof(int32)));
+                    numPorts = 1;
+                    ok = data.Read("Port", ports[0]);
+                    if(!ok)
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Ips array shall be specified for signal %d", sigIdx);
+                }
+                if(ok)
+                {
+                    if(numPorts != numIps[sigIdx])
+                    {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Dimension of Ports shall be the same of Ips for signal %d", sigIdx);
+                        ok = false;
+                    }
                 }
             }
-            if (ok) {
-                ok = data.Read("CircuitId", circuitIds[sigIdx]);
+            if (ok) 
+            {
+                uint32 numCircuitIds;
+                ok = helper.ReadArray("CircuitId", circuitIds[sigIdx], numCircuitIds);
+                if(!ok)
+                {
+                    numCircuitIds = 1;
+                    circuitIds[sigIdx] = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(sizeof(int32)));
+                    ok = data.Read("CircuitId", circuitIds[sigIdx][0]);
+                }
                 if (!ok) {
                     REPORT_ERROR(ErrorManagement::ParametersError, "CircuitId shall be specified");
                 }
+                else
+                {
+                    if(numCircuitIds != numIps[sigIdx])
+                    {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Dimension of CircuitId shall be the same of Ips for signal %d", sigIdx);
+                        ok = false;
+                    }
+                }
             }
-            data.MoveToAncestor(1u);
+            if(ok)
+            {
+                udpSockets[sigIdx] = new UDPSocket[numIps[sigIdx]];
+                for(uint32 currIdx = 0; ok && (currIdx < numIps[sigIdx]); currIdx++)
+                {
+                    ok = udpSockets[sigIdx][currIdx].Open();
+                    if(!ok)
+                    {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Cannot open socket for signal %d", sigIdx);
+                    }
+                }
+            }
+            if(ok)
+            {
+                for(uint32 currIdx = 0; ok && (currIdx < numIps[sigIdx]); currIdx++)
+                {
+                    printf("Connecting to %s   %d....\n", ips[currIdx].Buffer(), ports[currIdx]);
+                    ok = udpSockets[sigIdx][currIdx].Connect(ips[currIdx].Buffer(), ports[currIdx]);
+                    if(!ok)
+                    {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect to %s", ips[sigIdx].Buffer());
+                    }
+                } 
+                delete [] ips;
+                GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(ports));               
+            } 
+           data.MoveToAncestor(1u);
         }
         data.MoveToAncestor(1u);
     }
@@ -243,7 +310,6 @@ bool RTNOut::SetConfiguredDatabase(StructuredDataI& data) {
     }
     if (ok) { //Count and allocate memory for dataSourceMemory, lastValue and lastTime
 	//Count the number of bytes
-        udpSockets = new UDPSocket[nOfSignals];
         packetLens = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         signalNames = new StreamString[nOfSignals];
        	offsets  = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
@@ -274,35 +340,6 @@ bool RTNOut::SetConfiguredDatabase(StructuredDataI& data) {
     {
       	dataSourceMemory = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totalSignalMemory));
        	packet = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(maxPacketLen));
-    }
-    if(ok)
-    {
-        for (uint32 sigIdx = 0u; (sigIdx < nOfSignals) && ok; sigIdx++) {
-   	        ok =udpSockets[sigIdx].Open();
-            if(!ok)
-            {
-                REPORT_ERROR(ErrorManagement::ParametersError, "Cannot open socket for signal %d", sigIdx);
-            }
-        }
-    }
-    if(ok)
-    {
-        for (uint32 sigIdx = 0u; (sigIdx < nOfSignals) && ok; sigIdx++) {
-            do {
-                printf("Connecting to %s   %d....\n", ips[sigIdx].Buffer(), ports[sigIdx]);
-                ok = udpSockets[sigIdx].Connect(ips[sigIdx].Buffer(), ports[sigIdx]);
-                if(!ok)
-                {
-                    sleep(1);
-                }
-            }while(!ok);
-            printf("Connected!\n");
-            if(!ok)
-            {
-                REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect to %s", ips[sigIdx].Buffer());
-            }
-        }
-       
     }
     return ok;
 }
