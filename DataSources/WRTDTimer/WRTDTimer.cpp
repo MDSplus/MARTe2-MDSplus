@@ -282,6 +282,7 @@ const char8* WRTDTimer::GetBrokerName(StructuredDataI &data,
 bool WRTDTimer::Synchronise() {
     ErrorManagement::ErrorType err;
     err = synchSem.ResetWait(TTInfiniteWait);
+    printf("WRTD Time: %ld\n", *(long int *)time);
     return err.ErrorsCleared();
 }
 
