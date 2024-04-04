@@ -225,22 +225,24 @@ bool RTNIn::SetConfiguredDatabase(StructuredDataI& data) {
         {
             uint32 nBytes;
             offsets[sigIdx] = totBufBytes;
+
         	ok = GetSignalByteSize(sigIdx, nBytes);
 		    if (!ok) {
                 REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalByteSize() for signal %u", sigIdx);
                 return ok;
 		    }
-		    totBufBytes += nBytes;
-            currSamples[sigIdx] = 0;
+             currSamples[sigIdx] = 0;
             ok = GetFunctionSignalSamples(InputSignals, 0u, sigIdx, samples[sigIdx]);
 		    if (!ok) {
                 REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetFunctionSignalSamples() for signal %u", sigIdx);
                 return ok;
 		    }
-            sampleByteSizes[sigIdx] = nBytes/samples[sigIdx];
+           printf("\n\n\nSAMPLES: %d\t SampleByteSize: %d\n\n", samples[sigIdx], nBytes);
+            sampleByteSizes[sigIdx] = nBytes;
             maxPacketLen += sampleByteSizes[sigIdx] + sizeof(uint16)+sizeof(uint8)+signalNames[sigIdx].Size();
+    	    totBufBytes += nBytes * samples[sigIdx];
         }
-        dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
+	    dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         buffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         memset(buffer, 0, totBufBytes);
         udpBuffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(maxPacketLen * sizeof(char8)));
@@ -326,14 +328,14 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                 int32 sigId = getSignalId(currSigName);
                 if(sigId == -1)
                 {
-                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal name: %s", currSigName);
+                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal name : %s", currSigName);
                     mutex.FastUnLock();                    
                     return err;
                 }
                 if(currSampleLen != sampleByteSizes[sigId])
                 {
-                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal size for %s: expected: %d received: %d", 
-                        currSigName, sampleByteSizes[sigIdx], currSampleLen);
+                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal size for %s (%d): expected: %d received: %d", 
+                        currSigName, sigId, sampleByteSizes[sigIdx], currSampleLen);
                     mutex.FastUnLock();                    
                     return err;
                 }
@@ -364,7 +366,11 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
             if(isSynch && !samplesReady && newSamplesReady)
             {
  //               printf("POST!!!!\n");
-                err = !eventSem.Post();
+                for(uint32 sigIdx = 0; sigIdx < nOfSignals; sigIdx++)
+                {
+                    currSamples[sigIdx] = 0;
+                }
+               err = !eventSem.Post();
             }
             samplesReady = newSamplesReady;
             mutex.FastUnLock();
