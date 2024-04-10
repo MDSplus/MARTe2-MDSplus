@@ -152,7 +152,7 @@ private:
     /**
      * Offset of each signal in the dataSourceMemory
      */
-    uint32 *offsets;
+    uint32 **offsets;
 
     /**
      * Memory holding all the signals that are to be sent.
@@ -162,12 +162,17 @@ private:
     /**
      * Array of signal names in the order in which  they are declared in DataSource memory
     */
-     StreamString *signalNames;
+     StreamString **signalNames;
+    /**
+     * For every signal, the number of fields (!= 0 is the signal is structured) 
+    */
+     uint32 *nOfSignalFields;
+     
 
      /**
      * Size in bytes of every signal sample
      */
-      uint32 *sampleByteSizes;
+      uint32 **sampleByteSizes;
 
    /**
      * The asynchronous triggered broker that provides the interface between the GAMs and the output file.

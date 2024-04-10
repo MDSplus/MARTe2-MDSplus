@@ -122,7 +122,6 @@ bool RTNIn::Synchronise() {
 #ifdef DEBUG
     REPORT_ERROR(ErrorManagement::Debug, "Synchronise");
 #endif
-printf("SYNCHRONZE\n");
     mutex.FastLock();
     if(isSynch)
     {
@@ -135,7 +134,6 @@ printf("SYNCHRONZE\n");
         samplesReady = false;
     }
     memcpy(dataSourceMemory, buffer, totBufBytes);
-printf("SYNCHRONZE FATTO\n");
     mutex.FastUnLock();
    return true;
 }
@@ -184,20 +182,6 @@ bool RTNIn::Initialise(StructuredDataI& data) {
             REPORT_ERROR(ErrorManagement::ParametersError, "Port shall be specified");
         }
     }
-    if(ok)
-    {
-        ok = data.MoveRelative("Signals");
-        if(!ok) {
-            REPORT_ERROR(ErrorManagement::ParametersError,"Signals node Missing.");
-            return ok;
-        }
-        nOfSignals = data.GetNumberOfChildren();
-        signalNames = new StreamString[nOfSignals];
-        for (uint32 sigIdx = 0; sigIdx < nOfSignals; sigIdx++) {
-            signalNames[sigIdx] = data.GetChildName(sigIdx);
-        }
-        data.MoveToAncestor(1u);
-    }
     return ok;
 }
 
@@ -215,34 +199,39 @@ bool RTNIn::SetConfiguredDatabase(StructuredDataI& data) {
     }
     if(ok)
     {
+        nOfSignals = GetNumberOfSignals();
+
         samples = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         currSamples = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         sampleByteSizes = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         offsets = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
         totBufBytes = 0;
         maxPacketLen = 16 + sizeof(uint16);
+
+        signalNames = new StreamString[nOfSignals];
+        for (uint32 sigIdx = 0; sigIdx < nOfSignals; sigIdx++) {
+            GetSignalName(sigIdx, signalNames[sigIdx]);
+        }
         for(uint32 sigIdx = 0; sigIdx < nOfSignals; sigIdx++)
         {
             uint32 nBytes;
             offsets[sigIdx] = totBufBytes;
-
         	ok = GetSignalByteSize(sigIdx, nBytes);
 		    if (!ok) {
                 REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalByteSize() for signal %u", sigIdx);
                 return ok;
 		    }
-             currSamples[sigIdx] = 0;
+            currSamples[sigIdx] = 0;
             ok = GetFunctionSignalSamples(InputSignals, 0u, sigIdx, samples[sigIdx]);
 		    if (!ok) {
                 REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetFunctionSignalSamples() for signal %u", sigIdx);
                 return ok;
 		    }
-           printf("\n\n\nSAMPLES: %d\t SampleByteSize: %d\n\n", samples[sigIdx], nBytes);
+		    totBufBytes += nBytes*samples[sigIdx];
             sampleByteSizes[sigIdx] = nBytes;
             maxPacketLen += sampleByteSizes[sigIdx] + sizeof(uint16)+sizeof(uint8)+signalNames[sigIdx].Size();
-    	    totBufBytes += nBytes * samples[sigIdx];
         }
-	    dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
+        dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         buffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         memset(buffer, 0, totBufBytes);
         udpBuffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(maxPacketLen * sizeof(char8)));
@@ -316,6 +305,7 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
             currPacketOffs+=sizeof(uint16);
 //            samplesReady = false;
             mutex.FastLock();
+
             for(int sigIdx = 0; sigIdx < numPacketSignals; sigIdx++)
             {
                 uint8 sigNameLen = *(uint8 *)&udpBuffer[currPacketOffs];
@@ -328,14 +318,14 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
                 int32 sigId = getSignalId(currSigName);
                 if(sigId == -1)
                 {
-                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal name : %s", currSigName);
+                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal name: %s", currSigName);
                     mutex.FastUnLock();                    
                     return err;
                 }
                 if(currSampleLen != sampleByteSizes[sigId])
                 {
-                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal size for %s (%d): expected: %d received: %d", 
-                        currSigName, sigId, sampleByteSizes[sigIdx], currSampleLen);
+                    REPORT_ERROR(ErrorManagement::FatalError, "unexpected received signal size for %s: expected: %d received: %d", 
+                        currSigName, sampleByteSizes[sigIdx], currSampleLen);
                     mutex.FastUnLock();                    
                     return err;
                 }
@@ -365,12 +355,12 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
             }
             if(isSynch && !samplesReady && newSamplesReady)
             {
- //               printf("POST!!!!\n");
+
                 for(uint32 sigIdx = 0; sigIdx < nOfSignals; sigIdx++)
                 {
                     currSamples[sigIdx] = 0;
                 }
-               err = !eventSem.Post();
+                err = !eventSem.Post();
             }
             samplesReady = newSamplesReady;
             mutex.FastUnLock();

@@ -533,7 +533,7 @@ bool PyGAM::Initialise(StructuredDataI & data) {
 bool PyGAM::Setup() {
 	
 	// Debug
-	REPORT_ERROR(ErrorManagement::Debug, "SETUP");
+	REPORT_ERROR(ErrorManagement::Debug, " PYGAM SETUP");
 	
 	bool ok = false;
 	

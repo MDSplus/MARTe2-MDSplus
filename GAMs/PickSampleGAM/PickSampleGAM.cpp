@@ -116,11 +116,17 @@ bool PickSampleGAM::Setup() {
     /**
       * Firstly, types and dimensions of signals are retrieved and checked.
       */
+
+    numInSignals = GetNumberOfInputSignals();
+    numOutSignals = GetNumberOfOutputSignals();
+
     signalSamples = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(numInSignals * sizeof(uint32)));
     signalByteSize = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(numInSignals * sizeof(uint32)));
     TypeDescriptor signalType;
     uint32 signalElement;
     totSignalByteSize = 0;
+
+
 
     // Inputs
     for (uint32 sigIdx = 0; sigIdx < numInSignals; sigIdx++) {
@@ -254,7 +260,8 @@ bool PickSampleGAM::Execute() {
         for (uint32 sigIdx = 0; sigIdx < numInSignals; sigIdx++) {
  //Gabriele Oct 2023: copy last sample, i.e. the most recent one
  //           memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
-            memcpy(outputSignals[sigIdx], inputSignals[sigIdx]+(signalSamples[sigIdx] - 1)*signalByteSize[sigIdx], signalByteSize[sigIdx]); //Copy last sample
+//            memcpy(outputSignals[sigIdx], inputSignals[sigIdx]+(signalSamples[sigIdx] - 1)*signalByteSize[sigIdx], signalByteSize[sigIdx]); //Copy last sample
+            memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
         }
     }
     else //Compacting inputs in a single output

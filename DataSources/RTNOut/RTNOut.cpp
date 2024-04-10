@@ -33,10 +33,11 @@ namespace MARTe {
 
 RTNOut::RTNOut() :
         DataSourceI() {
-    offsets = NULL_PTR(uint32 *);
+    offsets = NULL_PTR(uint32 **);
     dataSourceMemory = NULL_PTR(char8 *);
-    signalNames = NULL_PTR(StreamString *);
-    sampleByteSizes = NULL_PTR(uint32 *);
+    signalNames = NULL_PTR(StreamString **);
+    sampleByteSizes = NULL_PTR(uint32 **);
+    nOfSignalFields = NULL_PTR(uint32 *);
     packet = NULL_PTR(char8 *);
 	nOfSignals = 0;
     counter = 0;
@@ -48,30 +49,39 @@ RTNOut::RTNOut() :
         }
 /*lint -e{1551} -e{1579} the destructor must guarantee that the memory is freed and the file is flushed and closed.. The brokerAsyncTrigger is freed by the ReferenceT */
 RTNOut::~RTNOut() {
-    if (offsets != NULL_PTR(uint32 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(offsets));
+    if (offsets != NULL_PTR(uint32 **)) {
+        for(uint32 i = 0; i < nOfSignalFields[i]; i++)
+            delete [] offsets[i];
+        delete [] offsets;
+    }
+    if (sampleByteSizes != NULL_PTR(uint32 **)) {
+        for(uint32 i = 0; i < nOfSignalFields[i]; i++)
+            delete [] sampleByteSizes[i];
+        delete [] sampleByteSizes;
+    }
+    if (nOfSignalFields != NULL_PTR(uint32 *)) {
+         delete [] nOfSignalFields;
     }
     if (dataSourceMemory != NULL_PTR(char8 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(dataSourceMemory));
+        delete [] dataSourceMemory;
     }
-    if (signalNames != NULL_PTR(StreamString *)) {
-        delete []signalNames;
-    }
-    if (offsets != NULL_PTR(uint32 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(sampleByteSizes));
+    if (signalNames != NULL_PTR(StreamString **)) {
+        for(uint32 i = 0; i < nOfSignalFields[i]; i++)
+            delete [] signalNames[i];
+       delete []signalNames;
     }
     if (packet != NULL_PTR(char8 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(packet));
+        delete [] packet;
     }
     if (circuitIds != NULL_PTR(uint32 **)) {
         for (uint32 i = 0; i < nOfSignals; i++)
         {
-            GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(circuitIds[i]));
+            delete [] circuitIds[i];
         }
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(circuitIds));
+        delete []circuitIds;
     }
     if (packetLens != NULL_PTR(uint32 *)) {
-        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *& >(packetLens));
+       delete []packetLens;
     }
     if(udpSockets != NULL_PTR(UDPSocket **)) {
        for (uint32 i = 0; i < nOfSignals; i++)
@@ -94,7 +104,22 @@ bool RTNOut::GetSignalMemoryBuffer(const uint32 signalIdx, const uint32 bufferId
     bool ok = (dataSourceMemory != NULL_PTR(char8 *));
     if (ok) {
         /*lint -e{613} dataSourceMemory cannot be NULL here*/
-        char8 *memPtr = &dataSourceMemory[offsets[signalIdx]];
+        uint32 sigIdx = 0, currIdx = 0, offsetIdx = 0;
+//Retrieve corresponding offset in structure
+        while(true)
+        {
+            currIdx += nOfSignalFields[sigIdx];
+            if(currIdx > signalIdx)
+            {
+                currIdx -= nOfSignalFields[sigIdx];
+                offsetIdx = signalIdx - currIdx;
+                break;
+            }
+            sigIdx++;
+        }
+
+        char8 *memPtr = &dataSourceMemory[offsets[sigIdx][offsetIdx]];
+
         signalAddress = reinterpret_cast<void *&>(memPtr);
     }
     return ok;
@@ -141,16 +166,20 @@ bool RTNOut::Synchronise()
         memset(packet, 0, packetLens[sigIdx]);
         *(int32 *)&packet[4] = counter;
 
-        *(int16 *)&packet[currOffs] = 1; //1 signal per packet
+        *(int16 *)&packet[currOffs] = nOfSignalFields[sigIdx]; //1 signal per packet if not structured, otherwise as many as the fields
         currOffs += 2;
-        *(int8 *)&packet[currOffs] = signalNames[sigIdx].Size();
-        currOffs++;
-        memcpy(&packet[currOffs], signalNames[sigIdx].Buffer(), signalNames[sigIdx].Size());
-        currOffs += signalNames[sigIdx].Size();
-        *(int16 *)(&packet[currOffs]) = sampleByteSizes[sigIdx];
-        currOffs += sizeof(int16); 
+        for(uint32 fieldIdx = 0; fieldIdx < nOfSignalFields[sigIdx]; fieldIdx++)
+        {
+            *(int8 *)&packet[currOffs] = signalNames[sigIdx][fieldIdx].Size();
+            currOffs++;
+            memcpy(&packet[currOffs], signalNames[sigIdx][fieldIdx].Buffer(), signalNames[sigIdx][fieldIdx].Size());
+            currOffs += signalNames[sigIdx][fieldIdx].Size();
+            *(int16 *)(&packet[currOffs]) = sampleByteSizes[sigIdx][fieldIdx];
+            currOffs += sizeof(int16); 
 //        printf("SPEDISCO %f\n", *(float *)&dataSourceMemory[offsets[sigIdx]]);
-        memcpy(&packet[currOffs], &dataSourceMemory[offsets[sigIdx]], sampleByteSizes[sigIdx]);
+            memcpy(&packet[currOffs], &dataSourceMemory[offsets[sigIdx][fieldIdx]], sampleByteSizes[sigIdx][fieldIdx]);
+            currOffs += sampleByteSizes[sigIdx][fieldIdx];
+        }
         for (uint32 currIdx = 0; currIdx < numIps[sigIdx]; currIdx++)
         { 
             *(int32 *)&packet[0] = circuitIds[sigIdx][currIdx];
@@ -191,7 +220,8 @@ bool RTNOut::Initialise(StructuredDataI& data) {
         nOfSignals = data.GetNumberOfChildren();
         numIps = new uint32[nOfSignals];
         udpSockets = new UDPSocket *[nOfSignals];
-        circuitIds = reinterpret_cast<uint32 **>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
+        nOfSignalFields = new uint32 [nOfSignals];
+        circuitIds = new uint32 *[nOfSignals];
         for (uint32 sigIdx = 0u; (sigIdx < nOfSignals) && ok; sigIdx++) {
             ok = data.MoveRelative(data.GetChildName(sigIdx));
             if (!ok) {
@@ -310,36 +340,104 @@ bool RTNOut::SetConfiguredDatabase(StructuredDataI& data) {
     }
     if (ok) { //Count and allocate memory for dataSourceMemory, lastValue and lastTime
 	//Count the number of bytes
-        packetLens = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
-        signalNames = new StreamString[nOfSignals];
-       	offsets  = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
-      	sampleByteSizes  = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(nOfSignals * sizeof(int32)));
+        packetLens = new uint32[nOfSignals];
+        signalNames = new StreamString *[nOfSignals];
+       	offsets  = new uint32*[nOfSignals];
+      	sampleByteSizes  = new uint32 *[nOfSignals];
     	memset(offsets, 0, nOfSignals * sizeof(int32));
         maxPacketLen = 0;
         totalSignalMemory = 0;
+        uint32 actSigIdx = 0;
+        uint32 nSamples;
+        uint32 actNumSignals = GetNumberOfSignals();
         for (uint32 sigIdx = 0u; (sigIdx < nOfSignals) && ok; sigIdx++) {
             uint32 nBytes;
             packetLens[sigIdx] = 16 + 2;
-		    offsets[sigIdx] = totalSignalMemory;
-		    ok = GetSignalByteSize(sigIdx, nBytes);
-		    if (!ok) {
-                        REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalByteSize() for signal %u", sigIdx);
-		    }
-		    ok = GetSignalName(sigIdx, signalNames[sigIdx]);
-		    if (!ok) {
+            StreamString currSignalName;
+            ok = GetSignalName(actSigIdx, currSignalName);
+            int32 idx;
+            if((idx = currSignalName.Locate('.')) != -1) //If it refers to a field of a structuee 
+            {
+                nOfSignalFields[sigIdx] = 0;
+                uint32 currSigIdx = actSigIdx;
+                while(currSigIdx < actNumSignals)
+                {
+                    StreamString currFieldName;
+                    ok = GetSignalName(currSigIdx, currFieldName);
+                    if (!ok) {
                         REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalName() for signal %u", sigIdx);
-		    }
-            packetLens[sigIdx] += 1 + signalNames[sigIdx].Size() +2 + nBytes;
-		    totalSignalMemory += nBytes;
-            sampleByteSizes[sigIdx] = nBytes;
-            if (packetLens[sigIdx] > maxPacketLen)
-                maxPacketLen = packetLens[sigIdx];
+                        return false;
+                    }
+                    if(strncmp(currSignalName.Buffer(), currFieldName.Buffer(), idx + 1)) //If the first part, including dot are differents
+                        break;
+                    currSigIdx++;
+                    nOfSignalFields[sigIdx]++;
+                }
+                currSigIdx = actSigIdx;
+                signalNames[sigIdx] = new StreamString[nOfSignalFields[sigIdx]];
+                offsets[sigIdx] = new uint32[nOfSignalFields[sigIdx]];
+                sampleByteSizes[sigIdx] = new uint32[nOfSignalFields[sigIdx]];
+                for(uint32 i = 0; i < nOfSignalFields[sigIdx]; i++)
+                {
+                    GetSignalName(currSigIdx, signalNames[sigIdx][i]);
+                    offsets[sigIdx][i] = totalSignalMemory;
+		            ok = GetSignalByteSize(currSigIdx, nBytes);
+		            if (!ok) {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalByteSize() for signal %u", sigIdx);
+		            }
+                    sampleByteSizes[sigIdx][i] = nBytes;
+                    totalSignalMemory += nBytes;
+                    packetLens[sigIdx] += 1 + signalNames[sigIdx][i].Size() +2 + nBytes;
+                    if (packetLens[sigIdx] > maxPacketLen)
+                        maxPacketLen = packetLens[sigIdx];
+                    ok = GetFunctionSignalSamples(OutputSignals, 0u, currSigIdx, nSamples);
+                    if (ok) {
+                        ok = (nSamples == 1u);
+                    }
+                    if (!ok) {
+                        REPORT_ERROR(ErrorManagement::ParametersError, "The number of samples shall be exactly 1");
+                    }
+                    currSigIdx++;
+                }
+                actSigIdx = currSigIdx;
+            }
+            else //Not a structured type
+            {
+                nOfSignalFields[sigIdx] = 1;
+                signalNames[sigIdx] = new StreamString[1];
+                sampleByteSizes[sigIdx] = new uint32[1];
+                offsets[sigIdx] = new uint32[1];
+                offsets[sigIdx][0] = totalSignalMemory;
+                signalNames[sigIdx][0] = currSignalName;
+                ok = GetSignalByteSize(actSigIdx, nBytes);
+                if (!ok) {
+                    REPORT_ERROR(ErrorManagement::ParametersError, "Error while GetSignalByteSize() for signal %u", sigIdx);
+                }
+                sampleByteSizes[sigIdx][0] = nBytes;
+                totalSignalMemory += nBytes;
+                packetLens[sigIdx] += 1 + signalNames[sigIdx][0].Size() +2 + nBytes;
+                if (packetLens[sigIdx] > maxPacketLen)
+                    maxPacketLen = packetLens[sigIdx];
+                ok = GetFunctionSignalSamples(OutputSignals, 0u, actSigIdx, nSamples);
+                if (ok) {
+                    ok = (nSamples == 1u);
+                }
+                if (!ok) {
+                    REPORT_ERROR(ErrorManagement::ParametersError, "The number of samples shall be exactly 1");
+                }
+               actSigIdx++; //Count just the signal
+            }
+        }
+        if(ok && (actSigIdx != actNumSignals))
+        {
+            ok = false;
+            REPORT_ERROR(ErrorManagement::ParametersError, "Internal error actNumSignals(%d) different from computed Num Signals (%d)", actNumSignals, actSigIdx);
         }
     }
     if(ok)
     {
-      	dataSourceMemory = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totalSignalMemory));
-       	packet = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(maxPacketLen));
+      	dataSourceMemory = new char8[totalSignalMemory];
+       	packet = new char8[maxPacketLen];
     }
     return ok;
 }
