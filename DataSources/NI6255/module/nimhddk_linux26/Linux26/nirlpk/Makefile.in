@@ -1,0 +1,7 @@
+
+KERNELTARGET=2.6.33.9-rt31.64.el5rt
+KERNELDIRECTORY=/lib/modules/2.6.33.9-rt31.64.el5rt/source
+MODPATH=/lib/modules/2.6.33.9-rt31.64.el5rt
+NIMODPATH=/lib/modules/2.6.33.9-rt31.64.el5rt/kernel/natinst
+
+nirlpk_DEFINES=-DnNIRLP_kRemapPfnRange

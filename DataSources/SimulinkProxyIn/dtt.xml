@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?><tree>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SUPERVISOR" NAME="MARTE2">
+<field NAME=":NAME">
+<data>"dtt"</data>
+</field>
+<field NAME=":IP_ADDRESS">
+<data>"localhost"</data>
+</field>
+<field NAME=":NUM_STATES">
+<data>1</data>
+</field>
+<field NAME=".STATE_1:NAME">
+<data>"State1"</data>
+</field>
+<field NAME=".STATE_1:NUM_THREADS">
+<data>1</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:NAME">
+<data>"Thread1"</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:CORE">
+<data>255</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:GAMS">
+<data>[\TOP:PL_PROXY_OUT, \TOP:VS, \TOP:PL_PROXY_IN]</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:TIMEBASE_MOD">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:TIMEBASE_DEF">
+<data>1000</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:NAME">
+<data>"Thread2"</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:CORE">
+<data>255</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:GAMS">
+<data>[\TOP:PL_STUB_IN, \TOP:PLASMA, \TOP:PL_STUB_OUT]</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:TIMEBASE_MOD">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:TIMEBASE_DEF">
+<data>1000</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:TIMEBASE_DIV">
+<data>1</data>
+</field>
+<field NAME=".STATE_1.THREAD_3:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_4:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_5:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_6:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_7:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_8:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2:NUM_THREADS">
+<data>1</data>
+</field>
+<field NAME=".STATE_2.THREAD_1:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_2:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_3:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_4:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_5:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_6:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_7:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_8:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:SEG_LEN">
+<data>10000</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:CPU_MASK">
+<data>4</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:SEG_LEN">
+<data>10000</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:CPU_MASK">
+<data>4</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_3.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_4.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=":MARTE_CONFIG">
+<data>BYTE_UNSIGNED(SET_RANGE(29091, 43BU))</data>
+</field>
+<field NAME=":INIT">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "INIT", 50, ""), Build_Method(*, "startMarteIdle", \TOP:MARTE2))</data>
+</field>
+<field NAME=":GOTORUN">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "PON", 20, ""), Build_Method(*, "gotorun", \TOP:MARTE2))</data>
+</field>
+<field NAME=":STOP">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "POST_PULSE_CHECK", 50, ""), Build_Method(*, "stopMarte", \TOP:MARTE2))</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SUPERVISOR" NAME="MARTE2_1">
+<field NAME=":NAME">
+<data>"DSPACE"</data>
+</field>
+<field NAME=":IP_ADDRESS">
+<data>"localhost"</data>
+</field>
+<field NAME=":NUM_STATES">
+<data>1</data>
+</field>
+<field NAME=".STATE_1:NAME">
+<data>"State1"</data>
+</field>
+<field NAME=".STATE_1:NUM_THREADS">
+<data>1</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:NAME">
+<data>"Thread1"</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:CORE">
+<data>255</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:GAMS">
+<data>[\TOP:PL_STUB_IN, \TOP:PLASMA, \TOP:PL_STUB_OUT]</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:TIMEBASE_MOD">
+<data>"INTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_1:TIMEBASE_DEF">
+<data>1000</data>
+</field>
+<field NAME=".STATE_1.THREAD_2:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_3:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_4:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_5:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_6:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_7:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_1.THREAD_8:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2:NUM_THREADS">
+<data>1</data>
+</field>
+<field NAME=".STATE_2.THREAD_1:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_2:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_3:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_4:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_5:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_6:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_7:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".STATE_2.THREAD_8:TIMEBASE_MOD">
+<data>"EXTERNAL"</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_1.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_1:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_2:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_3:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_4:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_5:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_6:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_7:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".TIMES.STATE_2.THREAD_8:CPU_MASK">
+<data>15</data>
+</field>
+<field NAME=":INIT">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "INIT", 50, ""), Build_Method(*, "startMarteIdle", \TOP:MARTE2_1))</data>
+</field>
+<field NAME=":GOTORUN">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "PON", 20, ""), Build_Method(*, "gotorun", \TOP:MARTE2_1))</data>
+</field>
+<field NAME=":STOP">
+<data>Build_Action(Build_Dispatch(2, "MARTE_SERVER", "POST_PULSE_CHECK", 50, ""), Build_Method(*, "stopMarte", \TOP:MARTE2_1))</data>
+</field>
+</device>
+<member FLAGS="COMPRESSIBLE,COMPRESS_ON_PUT" NAME="NULL_REF" USAGE="SIGNAL">
+<data>Build_Signal([0.,0.], *, [0.,10000.])</data>
+</member>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT" NAME="PLASMA">
+<field NAME=":TIMEBASE">
+<data>0 : 1000 : .0003</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5.VALUE.PAR_1:VALUE">
+<data>[-800D0,-800D0,-800D0,-800D0,-800D0,-800D0,-3000D0,-3000D0,-3000D0,-3000D0,-3000D0,-3000D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5.VALUE.PAR_2:VALUE">
+<data>[800D0,800D0,800D0,800D0,800D0,800D0,3000D0,3000D0,3000D0,3000D0,3000D0,3000D0]</data>
+</field>
+<field NAME=".PARAMETERS.PAR_5.VALUE.PAR_3:VALUE">
+<data>15000D0</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE:TYPE">
+<data>"busPFvoltages"</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE:VALUE">
+<data>\TOP:PL_STUB_IN.OUTPUTS.BUSPFVOLTAGE:VALUE</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS3U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS2U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS1U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS1L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS2L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.CS3L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF1:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF2:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF3:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF4:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF5:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTAGE.FIELDS.PF6:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.VS3:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".INPUTS.VS3:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.VS3:VALUE">
+<data>\TOP:PL_STUB_IN.OUTPUTS.VS3:VALUE</data>
+</field>
+<field NAME=".INPUTS.VS3:NAME">
+<data>"VS3"</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>255</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS3U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS3U:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS2U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS2U:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS1U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS1U:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS1L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS1L:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS2L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS2L:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS3L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.CS3L:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF1:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF2:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF3:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF4:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF5:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRENT.FIELDS.PF6:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.IVS3CURRENT:SEG_LEN">
+<data>100</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.IVS3CURRENT:STREAM">
+<data>""</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.DELTAZC:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.DELTAZC:SEG_LEN">
+<data>100</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.DELTAZC:STREAM">
+<data>""</data>
+</field>
+<field NAME=":JSCOPE_EV">
+<data>"dtt_ready"</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT_PROXY_IN" NAME="PL_PROXY_IN">
+<field NAME=":GAM_CLASS">
+<data>"SimulinkProxyIn"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>8125</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>255</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS3U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS2U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS1U:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS1L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS2L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.CS3L:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF1:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF2:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF3:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF4:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF5:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSPFCURRE0.FIELDS.PF6:SEG_LEN">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.IVS3CURRENT:SEG_LEN">
+<data>100</data>
+</field>
+<field NAME=".OUTPUTS.BUSVSSIGNALS.FIELDS.DELTAZC:SEG_LEN">
+<data>100</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT_PROXY_OUT" NAME="PL_PROXY_OUT">
+<field NAME=":GAM_CLASS">
+<data>"SimulinkProxyOut"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>"localhost"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>8122</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0:TYPE">
+<data>"busPFvoltages"</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS3U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS2U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS1U:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS1L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS2L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.CS3L:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF1:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF2:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF3:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF4:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF5:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.BUSPFVOLTA0.FIELDS.PF6:VALUE">
+<data>\TOP:NULL_REF</data>
+</field>
+<field NAME=".INPUTS.VS3:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".INPUTS.VS3:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.VS3:VALUE">
+<data>\TOP:VS.OUTPUTS.VS3:VALUE</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT_PROXY_IN_SERVER" NAME="PL_STUB_IN">
+<field NAME=":GAM_CLASS">
+<data>"SimulinkProxyIn"</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT_PROXY_OUT_SERVER" NAME="PL_STUB_OUT">
+<field NAME=":GAM_CLASS">
+<data>"SimulinkProxyOut"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_1:VALUE">
+<data>"localhost"</data>
+</field>
+<field NAME=".PARAMETERS.PAR_2:VALUE">
+<data>8125</data>
+</field>
+<field NAME=".INPUTS.BUSPFCURRENT:TYPE">
+<data>"busPFcurrents"</data>
+</field>
+<field NAME=".INPUTS.BUSPFCURRENT:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.BUSPFCURRENT:VALUE">
+<data>\TOP:PLASMA.OUTPUTS.BUSPFCURRENT:VALUE</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:TYPE">
+<data>"busVSsignals"</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:VALUE">
+<data>\TOP:PLASMA.OUTPUTS.BUSVSSIGNALS:VALUE</data>
+</field>
+</device>
+<device FLAGS="WRITE_ONCE,COMPRESSIBLE,COMPRESS_ON_PUT" MODEL="MARTE2_SIMULINK_DTT_VS" NAME="VS">
+<field NAME=":TIMEBASE">
+<data>\TOP:PLASMA:TIMEBASE</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:TYPE">
+<data>"busVSsignals"</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".INPUTS.BUSVSSIGNALS:VALUE">
+<data>\TOP:PL_PROXY_IN.OUTPUTS.BUSVSSIGNALS:VALUE</data>
+</field>
+<field NAME=".OUTPUTS:PRE_TRIGGER">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS:CPU_MASK">
+<data>255</data>
+</field>
+<field NAME=".OUTPUTS.VS3:TYPE">
+<data>"float64"</data>
+</field>
+<field NAME=".OUTPUTS.VS3:DIMENSIONS">
+<data>0</data>
+</field>
+<field NAME=".OUTPUTS.VS3:SEG_LEN">
+<data>100</data>
+</field>
+</device>
+</tree>

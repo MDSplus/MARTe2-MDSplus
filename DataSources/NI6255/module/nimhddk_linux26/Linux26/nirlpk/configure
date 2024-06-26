@@ -1,0 +1,111 @@
+#!/bin/sh
+#
+#  configure
+#     Configuration script for nirlpk kernel driver (2.6 kernels)
+#
+#  (c) Copyright 2006,
+#  National Instruments Corporation.
+#  All Rights reserved.
+#
+#-----------------------------------------------------------------------------------------
+
+statusFail=1
+statusSuccess=0
+
+#-----------------------------------------------------------------------------------------
+# Required tools
+#-----------------------------------------------------------------------------------------
+
+CUT=cut
+GREP=grep
+
+#-----------------------------------------------------------------------------------------
+# Determine kernel version
+#-----------------------------------------------------------------------------------------
+
+if [ $KERNELTARGET ]; then
+   kernelVersion=$KERNELTARGET
+   kernelMajor=`echo $kernelVersion | $CUT -d "-" -f 1 | $CUT -d "." -f 1`
+   kernelPatchLevel=`echo $kernelVersion | $CUT -d "-" -f 1 | $CUT -d "." -f 2`
+else
+   kernelVersion=`uname -r`
+   kernelMajor=`echo $kernelVersion | $CUT -d "-" -f 1 | $CUT -d "." -f 1`
+   kernelPatchLevel=`echo $kernelVersion | $CUT -d "-" -f 1 | $CUT -d "." -f 2`
+fi
+
+#-----------------------------------------------------------------------------------------
+# Locate kernel modules directory
+#-----------------------------------------------------------------------------------------
+
+if [ ! -d /lib/modules/$kernelVersion ]; then
+   echo "*** ERROR: /lib/modules/$kernelVersion directory not found. ***"
+   exit $statusFail
+fi
+modulePath=/lib/modules/$kernelVersion
+niModulePath=$modulePath/kernel/natinst
+
+#-----------------------------------------------------------------------------------------
+# Find kernel headers
+#-----------------------------------------------------------------------------------------
+
+if [ $KERNELHEADERS ]; then
+   headersDir=$KERNELHEADERS
+elif [ -d "/lib/modules/$kernelVersion/build/include/linux" ]; then
+   if [ -d "/lib/modules/$kernelVersion/source/include/linux" ]; then
+      headersDir=/lib/modules/$kernelVersion/source
+   else
+      headersDir=/lib/modules/$kernelVersion/build
+   fi
+elif [ -d "/usr/src/linux-$kernelVersion/include/linux" ]; then
+   headersDir=/usr/src/linux-$kernelVersion
+elif [ -d "/usr/src/linux-$kernelMajor.$kernelPatchLevel/include/linux" ]; then
+   headersDir=/usr/src/linux-$kernelMajor.$kernelPatchLevel
+elif [ -d "/usr/src/kernels/$kernelVersion/include/linux" ]; then
+   headersDir=/usr/src/kernels/$kernelVersion
+elif [ -d "/usr/src/linux/include/linux" ]; then
+   headersDir=/usr/src/linux
+else
+   echo "*** ERROR: Unable to find kernel sources which are needed to build modules. ***"
+   exit $statusFail
+fi
+
+echo "********************************* NOTE *********************************"
+echo "Using kernel headers found in $headersDir."
+echo "If this does not correspond to the location of the $kernelVersion headers,"
+echo "then define KERNELHEADERS in your environment to point to the location"
+echo "of the kernel headers, define KERNELTARGET as the version of the"
+echo "kernel for which to compile, and then rerun $0."
+echo "********************************* NOTE *********************************"
+echo " "
+
+#-----------------------------------------------------------------------------------------
+# check for kernel features
+#-----------------------------------------------------------------------------------------
+
+echo -n "kernel has remap_pfn_range: "
+remap_pfn_range=`$GREP -wc remap_pfn_range $headersDir/include/linux/mm.h`
+if [ $remap_pfn_range -ne 0 ]; then
+   echo "yes"
+   remap_pfn_range_DEFINE="-DnNIRLP_kRemapPfnRange"
+else
+   echo "no"
+fi
+
+#-----------------------------------------------------------------------------------------
+# Generate Makefile.in
+#-----------------------------------------------------------------------------------------
+
+echo " "
+echo "Storing configuration in Makefile.in"
+echo "If the values stored are incorrect they can be changed before running make."
+echo " "
+
+echo "
+KERNELTARGET=$kernelVersion
+KERNELDIRECTORY=$headersDir
+MODPATH=$modulePath
+NIMODPATH=$niModulePath
+
+nirlpk_DEFINES=$remap_pfn_range_DEFINE" > Makefile.in
+
+exit $statusSuccess

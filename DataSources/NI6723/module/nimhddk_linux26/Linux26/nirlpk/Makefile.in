@@ -1,0 +1,7 @@
+
+KERNELTARGET=3.10.0-1127.el7.x86_64
+KERNELDIRECTORY=/lib/modules/3.10.0-1127.el7.x86_64/source
+MODPATH=/lib/modules/3.10.0-1127.el7.x86_64
+NIMODPATH=/lib/modules/3.10.0-1127.el7.x86_64/kernel/natinst
+
+nirlpk_DEFINES=-DnNIRLP_kRemapPfnRange

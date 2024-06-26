@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+#  lsdaq
+#  list devices detected by nirlpk
+#
+#  (c) Copyright 2006,
+#  National Instruments Corporation.
+#  All Rights reserved.
+#
+#--------------------------------------------------
+
+if [ ! -e /proc/nirlpk/lsdaq ]; then
+    echo "lsdaq file not found - make sure nirlpk is loaded"
+    exit 1
+fi
+
+cat /proc/nirlpk/lsdaq

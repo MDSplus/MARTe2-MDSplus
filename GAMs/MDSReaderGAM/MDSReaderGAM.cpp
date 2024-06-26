@@ -397,6 +397,7 @@ bool MDSReaderGAM::Setup() {
 
 
 bool MDSReaderGAM::Execute() {
+    printf("MDSREADER EXECUTE\n");
     switch(inType) {
         case MDSREADERGAM_INT8:
              currentTime = * reinterpret_cast<int8 *>(inSignalMemory);
@@ -444,6 +445,7 @@ bool MDSReaderGAM::Execute() {
 	    }
     }
     numCycles++;
+    printf("MDSREADER EXECUTE FATTA\n");
     return true;
 }
 
