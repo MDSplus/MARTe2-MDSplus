@@ -330,7 +330,7 @@ bool MDSReaderGAM::Setup() {
     std::cout << "SETUP  MDS READER" << std::endl<< std::endl;
 
     inputType =  GetSignalType(InputSignals, 0);
-    ok = ((inputType == UnsignedInteger64Bit)||(inputType == SignedInteger64Bit)||(inputType == UnsignedInteger32Bit)||(inputType == SignedInteger64Bit));
+    ok = ((inputType == UnsignedInteger64Bit)||(inputType == SignedInteger64Bit)||(inputType == UnsignedInteger32Bit)||(inputType == SignedInteger32Bit));
     if(!ok)
     {
          REPORT_ERROR(ErrorManagement::ParametersError, "Input signal type shall be either int64, uint64, int32, uint32");
