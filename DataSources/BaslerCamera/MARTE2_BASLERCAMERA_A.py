@@ -47,9 +47,9 @@ class MARTE2_BASLERCAMERA_A(MC.MARTE2_COMPONENT):
     parts = []
 
     def prepareMarteInfo(self):
-        self.outputs.frame.dimensions.putData(Data.compile(
-            '[build_path("\\' + self.getFullPath() + '.parameters:par_3:value) * build_path("\\' + self.getFullPath() + '.parameters:par_4:value)]'
-        ))
+        #self.outputs.frame.dimensions.putData(Data.compile(
+        #    '[build_path("\\' + self.getFullPath() + '.parameters:par_3:value) * build_path("\\' + self.getFullPath() + '.parameters:par_4:value)]'
+        #))
 
         # self.timebase.putData(Data.compile(
         #     ' 0 : * : 1.0D / (build_path("\\' + self.getFullPath() + '.parameters:par_2:value))'
