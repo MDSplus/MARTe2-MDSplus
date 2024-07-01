@@ -39,7 +39,7 @@ BaslerCamera::BaslerCamera()
     _offsetX = 0;
     _offsetY = 0;
     _rawGain = 0;
-    _exposure = 0;
+    _exposureTime = 0;
 
     PylonInitialize();
 
@@ -273,11 +273,11 @@ bool BaslerCamera::SetConfiguredDatabase(StructuredDataI & data)
     _camera->OffsetX = _offsetX;
     _camera->OffsetY = _offsetY;
     
-    _camera->ExposureMode = 'Timed';
-    _camera->ExposureAuto = 'Off';
+    _camera->ExposureMode = "Timed";
+    _camera->ExposureAuto = "Off";
     _camera->ExposureTimeAbs = _exposureTime;
     
-    _camera->GainAuto = 'Off';
+    _camera->GainAuto = "Off";
     _camera->GainRaw = _rawGain;
 
     _camera->GevIEEE1588 = true;
