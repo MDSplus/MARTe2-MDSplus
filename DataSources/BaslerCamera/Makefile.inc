@@ -26,7 +26,7 @@ OBJSX=BaslerCamera.x
 
 PACKAGE=Components/DataSources
 
-ROOT_DIR=../../../../
+ROOT_DIR=../../
 
 MAKEDEFAULTDIR=$(MARTe2_DIR)/MakeDefaults
 
