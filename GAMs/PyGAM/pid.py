@@ -28,9 +28,9 @@ pygam.ParameterDict['pid'] = {
 
 #Past history required for pid 
 global y_1, x_1, x_2, x_fact, x_1_fact, x_2_fact
-y_1 = np.float(0.)
-x_1 = np.float(0.)
-x_2 = np.float(0.)
+y_1 = float(0.)
+x_1 = float(0.)
+x_2 = float(0.)
 #PID factors in Z, computed once for all
 x_fact = 0
 x_1_fact = 0
@@ -48,9 +48,9 @@ def setup():
     print('Kd: '+str(Kd))    
     print('T: '+str(T))    
 
-    x_fact = np.float(Kp + T*Ki + Kd/T)
-    x_1_fact = np.float(-(Kp+2.*Kd/T))
-    x_2_fact = np.float(Kd/T)
+    x_fact = float(Kp + T*Ki + Kd/T)
+    x_1_fact = float(-(Kp+2.*Kd/T))
+    x_2_fact = float(Kd/T)
 
 def execute(x):
     global y_1
