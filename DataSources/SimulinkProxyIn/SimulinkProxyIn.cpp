@@ -247,7 +247,7 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
 
     printf("WAITING CONNECTION...\n");
     commSock = serverSock.WaitConnection();
-    printf("RICEVUTA CONNESSIONE\n");
+    printf("CONNECTION RECEIVED!\n");
 
     startCounter = 0;
     return ok;   

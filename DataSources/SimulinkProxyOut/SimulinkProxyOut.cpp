@@ -194,6 +194,7 @@ bool SimulinkProxyOut::SetConfiguredDatabase(StructuredDataI& data) {
     if(ok)
     {
       	dataSourceMemory = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totalSignalMemory));
+        memset(dataSourceMemory, 0, totalSignalMemory);
     }
     if(ok)
     {
@@ -214,6 +215,8 @@ bool SimulinkProxyOut::SetConfiguredDatabase(StructuredDataI& data) {
             }
         }while(!ok);
         printf("Connected!\n");
+        //Write a first null sample to break tie
+        ok = socket.Write(dataSourceMemory, totalSignalmemory);
         if(!ok)
         {
             REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect socket");
