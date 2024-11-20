@@ -216,7 +216,7 @@ bool SimulinkProxyOut::SetConfiguredDatabase(StructuredDataI& data) {
         }while(!ok);
         printf("Connected!\n");
         //Write a first null sample to break tie
-        ok = socket.Write(dataSourceMemory, totalSignalmemory);
+        ok = socket.Write(dataSourceMemory, totalSignalMemory);
         if(!ok)
         {
             REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect socket");

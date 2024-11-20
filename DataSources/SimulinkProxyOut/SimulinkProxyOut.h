@@ -14,7 +14,7 @@
 #include "MemoryMapSynchronisedOutputBroker.h"
 #include "MessageI.h"
 #include "RegisteredMethodsMessageFilter.h"
-#include <BasicTCPSocket.h>
+#include <BasicUDPSocket.h>
 
 /*---------------------------------------------------------------------------*/
 /*                           Class declaration                               */
@@ -143,7 +143,7 @@ private:
     uint32 totalSignalMemory;
     StreamString ip;
     uint32 port;
-    BasicTCPSocket socket;  
+    BasicUDPSocket socket;  
 
 
 };

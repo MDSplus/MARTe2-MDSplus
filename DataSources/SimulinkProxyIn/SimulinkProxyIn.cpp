@@ -31,7 +31,6 @@ SimulinkProxyIn::SimulinkProxyIn() :
 	totalSignalSize = 0;
     nOfSignals = 0;
 	port = 0;
-    commSock = NULL_PTR(BasicTCPSocket *);
 }
 
 SimulinkProxyIn::~SimulinkProxyIn() {
@@ -108,11 +107,10 @@ bool SimulinkProxyIn::Synchronise() {
     }
     else
     {
-        if(!commSock->Read(&dataSourceMemory[offsets[2]], size))
+        if(!commSock.Read(&dataSourceMemory[offsets[2]], size))
         {
             REPORT_ERROR(ErrorManagement::FatalError,"Error receiving TCP data");
-            commSock->Close();
-            commSock = NULL_PTR(BasicTCPSocket *);
+//            commSock.Close();
             return false;
         }
     }
@@ -135,6 +133,12 @@ bool SimulinkProxyIn::PrepareNextState(const char8* const currentStateName, cons
 
 bool SimulinkProxyIn::Initialise(StructuredDataI& data) {
     bool ok = DataSourceI::Initialise(data);
+    if (ok) {
+        ok = data.Read("IpAddress", ipAddr);
+    }
+    if (!ok) {
+        REPORT_ERROR(ErrorManagement::ParametersError, "IpAddress");
+    }
     if(ok) {
         ok = data.Read("Port", port);
        if (!ok) {
@@ -228,6 +232,29 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
     {
       	dataSourceMemory = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totalSignalSize));
     }
+ 
+ 
+    if(ok) {
+        if(!commSock.Open())
+        {
+            REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Open UDP socket");
+            ok = false;
+        }
+    }
+    if(ok)
+    {
+        InternetHost ip(port, ipAddr.Buffer());
+        commSock.SetSource(ip);
+        if(!commSock.Listen(port))
+        {
+            REPORT_ERROR(ErrorManagement::ParametersError, "Cannot bind to port %d", port);
+            ok = false;
+        }
+    }
+
+ /*
+ 
+ 
     if(ok)
     {
    	    ok = serverSock.Open();
@@ -248,6 +275,7 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
     printf("WAITING CONNECTION...\n");
     commSock = serverSock.WaitConnection();
     printf("CONNECTION RECEIVED!\n");
+*/
 
     startCounter = 0;
     return ok;   

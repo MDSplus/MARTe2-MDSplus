@@ -44,7 +44,7 @@
 #include "MessageI.h"
 #include "RegisteredMethodsMessageFilter.h"
 #include "EventSem.h"
-#include <BasicTCPSocket.h>
+#include <BasicUDPSocket.h>
 #include <HighResolutionTimer.h>
 
 
@@ -169,7 +169,9 @@ private:
     /**
      * Memory holding all the signals that are to be stored, for each cycle, in the output file.
      */
-    BasicTCPSocket serverSock, *commSock;
+   // BasicTCPSocket serverSock, *commSock;
+    BasicUDPSocket commSock;
+    StreamString ipAddr;
     int port;
     bool firstPacketEnabled;
     uint64 startCounter;
