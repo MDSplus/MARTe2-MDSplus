@@ -173,6 +173,7 @@ private:
     BasicUDPSocket commSock;
     StreamString ipAddr;
     int port;
+    int inPort;
     bool firstPacketEnabled;
     uint64 startCounter;
     uint32 totalSignalSize;

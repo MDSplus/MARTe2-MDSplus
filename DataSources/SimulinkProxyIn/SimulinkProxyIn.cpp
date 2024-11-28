@@ -145,6 +145,12 @@ bool SimulinkProxyIn::Initialise(StructuredDataI& data) {
             REPORT_ERROR(ErrorManagement::Information, "Port shall be specified ");
         }
     }
+    if(ok) {
+        ok = data.Read("InPort", inPort);
+       if (!ok) {
+            REPORT_ERROR(ErrorManagement::Information, "InPort shall be specified ");
+        }
+    }
     if(ok)
     {
         int32 firstPacketEnabledInt = 0;
@@ -245,9 +251,9 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
     {
         InternetHost ip(port, ipAddr.Buffer());
         commSock.SetSource(ip);
-        if(!commSock.Listen(port))
+        if(!commSock.Listen(inPort))
         {
-            REPORT_ERROR(ErrorManagement::ParametersError, "Cannot bind to port %d", port);
+            REPORT_ERROR(ErrorManagement::ParametersError, "Cannot bind to port %d", inPort);
             ok = false;
         }
     }
