@@ -52,7 +52,6 @@ uint32 SimulinkProxyIn::GetNumberOfMemoryBuffers() {
 }
 
 bool SimulinkProxyIn::GetSignalMemoryBuffer(const uint32 signalIdx, const uint32 bufferIdx, void*& signalAddress) {
-	printf("SIMULINKPROXYIN GETMEM\n");
     bool ok = (dataSourceMemory != NULL_PTR(char8 *));
     if (ok) {
         /*lint -e{613} dataSourceMemory cannot be NULL here*/
@@ -63,7 +62,6 @@ bool SimulinkProxyIn::GetSignalMemoryBuffer(const uint32 signalIdx, const uint32
 }
 
 const char8* SimulinkProxyIn::GetBrokerName(StructuredDataI& data, const SignalDirection direction) {
-	printf("SIMULINKPROXYIN GETBROKERNAME\n");
     const char8* brokerName = "";
     if (direction == InputSignals) {
             brokerName = "MemoryMapSynchronisedInputBroker";
@@ -72,19 +70,16 @@ const char8* SimulinkProxyIn::GetBrokerName(StructuredDataI& data, const SignalD
 }
 
 bool SimulinkProxyIn::GetOutputBrokers(ReferenceContainer& inputBrokers, const char8* const functionName, void* const gamMemPtr) {
-	printf("SIMULINKPROXYIN GETOUTBROKER\n");
     return false;
 }
 
 bool SimulinkProxyIn::IsSupportedBroker(const SignalDirection direction, const uint32 functionIdx, const uint32 functionSignalIdx, const char8* const brokerClassName)
 {
-	printf("SIMULINKPROXYIN ISSUPPORTEDBRO\n");
      return true;
 }
 
 bool SimulinkProxyIn::GetInputBrokers(ReferenceContainer& inputBrokers, const char8* const functionName, void* const gamMemPtr) {
   
-	printf("SIMULINKPROXYIN GETINPUTBRO\n");
     bool ok = true;
 
     ReferenceT<MemoryMapSynchronisedInputBroker> broker("MemoryMapSynchronisedInputBroker");
@@ -107,12 +102,47 @@ bool SimulinkProxyIn::Synchronise() {
     }
     else
     {
-        if(!commSock.Read(&dataSourceMemory[offsets[2]], size))
+        bool loss;
+        lossCount += lossRate;
+        if(lossCount < 1)
+        {
+            loss = false;
+        }
+        else
+        {
+            loss = true; 
+            lossCount -= 1;
+        }
+        //if(loss) printf("LOSS\n"); else printf("NO LOSS\n");
+        if(loss)
+        {
+           // memcpy(&dataSourceMemory[offsets[2]], fifo, size); //Same of the previous cycle
+        }
+        if(!commSock.Read(&fifo[packetDelay * size], size))
         {
             REPORT_ERROR(ErrorManagement::FatalError,"Error receiving TCP data");
-//            commSock.Close();
             return false;
         }
+        for(int i = 0; i < packetDelay; i++)
+        {
+            //Not the most efficient, but quick.....
+            memcpy(&fifo[size * i], &fifo[size * (i+1)], size);
+        }
+        if(!loss)
+        {
+            memcpy(&dataSourceMemory[offsets[2]], fifo, size); //Updated one
+        }
+/*        printf("LEGGO: ");
+        for(int i = 2; i  < nOfSignals; i++)
+            printf("%f  ", *((float64 *)&dataSourceMemory[offsets[i]]));
+        printf("\n");
+*/
+/*        if(!commSock.Read(&dataSourceMemory[offsets[2]], size))
+        {
+            REPORT_ERROR(ErrorManagement::FatalError,"Error receiving TCP data");
+            return false;
+        }
+*/
     }
     *(int32 *)&dataSourceMemory[offsets[0]] = counter;
     counter++;
@@ -151,6 +181,31 @@ bool SimulinkProxyIn::Initialise(StructuredDataI& data) {
             REPORT_ERROR(ErrorManagement::Information, "InPort shall be specified ");
         }
     }
+    if(ok) {
+        ok = data.Read("LossRate", lossRate);
+       if (!ok) {
+            lossRate = 0;
+            ok = true;
+        }
+        if(lossRate > 1 || lossRate < 0)
+        {
+            REPORT_ERROR(ErrorManagement::Information, "LossRate shall be between 0 and 1");
+            ok = false;
+        }
+    }
+    if(ok) {
+        ok = data.Read("PacketDelay", packetDelay);
+       if (!ok) {
+            packetDelay = 0;
+            ok = true;
+        }
+        if(packetDelay < 0)
+        {
+            REPORT_ERROR(ErrorManagement::Information, "packetDelay shall be greater than or equal zero");
+            ok = false;
+        }
+    }
+    
     if(ok)
     {
         int32 firstPacketEnabledInt = 0;
@@ -185,13 +240,11 @@ bool SimulinkProxyIn::Initialise(StructuredDataI& data) {
         }
     }
     data.MoveToAncestor(1u);
-printf("SIMULINKPROXYIN: %d\n", ok);
     return ok;
 }
 
 
 bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
-	printf("SIMULINKPROXYIN CNFIGURE\n");
     bool ok = DataSourceI::SetConfiguredDatabase(data);
     if (ok) { // Check that only one GAM is Connected to the MDSReaderNS
         uint32 auxNumberOfFunctions = GetNumberOfFunctions();
@@ -232,6 +285,7 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
 		    GetSignalByteSize(n, nBytes);
 	        totalSignalSize += nBytes;
         }
+        fifo =  reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc((totalSignalSize - 2 * sizeof(int)) * (packetDelay + 1)));
 	
     } 
     if(ok)
@@ -283,6 +337,7 @@ bool SimulinkProxyIn::SetConfiguredDatabase(StructuredDataI& data) {
     printf("CONNECTION RECEIVED!\n");
 */
 
+    lossCount = 0;
     startCounter = 0;
     return ok;   
 }

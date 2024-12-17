@@ -169,7 +169,6 @@ private:
     /**
      * Memory holding all the signals that are to be stored, for each cycle, in the output file.
      */
-   // BasicTCPSocket serverSock, *commSock;
     BasicUDPSocket commSock;
     StreamString ipAddr;
     int port;
@@ -180,6 +179,10 @@ private:
     uint32 nOfSignals;
     uint32 time, counter;
     char8 *dataSourceMemory;
+    float64 lossRate; 
+    float64 lossCount;
+    int32 packetDelay;
+    char8 *fifo;
  };
   
 

@@ -113,11 +113,45 @@ bool SimulinkProxyOut::GetOutputBrokers(ReferenceContainer& outputBrokers, const
 bool SimulinkProxyOut::Synchronise() 
 {
     uint32 size = totalSignalMemory;
+    bool loss;
+    lossCount += lossRate;
+    if(lossCount < 1)
+    {
+        loss = false;
+    }
+    else
+    {
+        loss = true; 
+        lossCount -= 1;
+    }
+    if(!loss)
+    {
+        memcpy(&fifo[size * packetDelay], dataSourceMemory, size); //Same of the previous cycle
+    }
+    for(int i = 0; i < packetDelay; i++)
+    {
+            //Not the most efficient, but quick.....
+        memcpy(&fifo[size * i], &fifo[size * (i+1)], size);
+    }
+ /*        printf("SCRIVO ");
+        for(int i = 0; i < nOfSignals; i++)
+            printf("%f  ", ((float64 *)fifo)[i]);
+        printf("\n");
+*/
+    if(!socket.Write(fifo, size))
+    {
+        REPORT_ERROR(ErrorManagement::FatalError,"Error sending TCP data");
+        return false;
+    }
+
+
+ /*   
     if(!socket.Write(dataSourceMemory, size))
     {
         REPORT_ERROR(ErrorManagement::FatalError,"Error sending TCP data");
         return false;
     }
+*/
     return true;
 }
  
@@ -145,6 +179,32 @@ bool SimulinkProxyOut::Initialise(StructuredDataI& data) {
             REPORT_ERROR(ErrorManagement::ParametersError, "Port shall be specified");
         }
     }
+    if(ok) {
+        ok = data.Read("LossRate", lossRate);
+       if (!ok) {
+            lossRate = 0;
+            ok = true;
+        }
+        if(lossRate > 1 || lossRate < 0)
+        {
+            REPORT_ERROR(ErrorManagement::Information, "LossRate shall be between 0 and 1");
+            ok = false;
+        }
+    }
+    if(ok) {
+        ok = data.Read("PacketDelay", packetDelay);
+       if (!ok) {
+            packetDelay = 0;
+            ok = true;
+        }
+        if(packetDelay < 0)
+        {
+            REPORT_ERROR(ErrorManagement::Information, "packetDelay shall be greater than or equal zero");
+            ok = false;
+        }
+    }
+    
+ 
     ok = data.MoveRelative("Signals");
     if(!ok) {
 	    REPORT_ERROR(ErrorManagement::ParametersError,"Signals node Missing.");
@@ -196,6 +256,7 @@ bool SimulinkProxyOut::SetConfiguredDatabase(StructuredDataI& data) {
       	dataSourceMemory = reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totalSignalMemory));
         memset(dataSourceMemory, 0, totalSignalMemory);
     }
+    fifo =  reinterpret_cast<char8*>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc((totalSignalMemory) * (packetDelay + 1)));
     if(ok)
     {
    	    ok =socket.Open();
@@ -216,14 +277,14 @@ bool SimulinkProxyOut::SetConfiguredDatabase(StructuredDataI& data) {
         }while(!ok);
         printf("Connected!\n");
         //Write a first null sample to break tie
-        ok = socket.Write(dataSourceMemory, totalSi
-        gnalMemory);
+        ok = socket.Write(dataSourceMemory, totalSignalMemory);
         if(!ok)
         {
             REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect socket");
         }
        
     }
+    lossCount = 0;
     return ok;
 }
 

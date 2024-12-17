@@ -144,7 +144,11 @@ private:
     StreamString ip;
     uint32 port;
     BasicUDPSocket socket;  
-
+    float64 lossRate; 
+    float64 lossCount;
+    int32 packetDelay;
+    char8 *fifo;
+ 
 
 };
 }
