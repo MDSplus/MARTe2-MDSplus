@@ -66,7 +66,7 @@ static FastPollingMutexSem eventCallbackFastMux;
         char *str = new char[bufSize+1]; //Make it a string
         memcpy(str, buf, bufSize);
         str[bufSize] = 0;
-        std::cout << "RECEIVED EVENT " << name << " AT " << date << " WITH DATA  " << str << "\n";
+ //       std::cout << "RECEIVED EVENT " << name << " AT " << date << " WITH DATA  " << str << "\n";
 	std::string inStr(str);
 	if (inStr == "EXIT")
 	{
@@ -86,7 +86,6 @@ static FastPollingMutexSem eventCallbackFastMux;
 	  {
 	    function = inStr.substr(pos1+1, pos2 - pos1 - 1);
 	    std::string argument = inStr.substr(pos2+1);
-	    std::cout << "Destination: " << destination << "   Function: " << function << "  Argument:  " << argument << std::endl;
 /*	    if(argument[0] >='0' && argument[0] <= '9')
 		evManager->sendMessage(destination, function, atoi(argument.c_str()));
 	    else
@@ -95,7 +94,6 @@ static FastPollingMutexSem eventCallbackFastMux;
 	  else
 	  {
 	    function = inStr.substr(pos1+1);
-	    std::cout << "Destination: " << destination << "   Function: " << function << std::endl;
 	    evManager->sendMessage(destination, function, "");
 	    
 	  }
@@ -137,7 +135,6 @@ MDSEventManager::~MDSEventManager() {
 
 
 bool MDSEventManager::Initialise(StructuredDataI & data) {
-    printf("\n\n\nMDS EVENTS INIT\n\n\n");
     bool ok = ReferenceContainer::Initialise(data);
     if (ok) {
         if (!data.Read("CPUs", cpuMask)) {
@@ -244,8 +241,6 @@ void MDSEventManager::sendMessage(std::string destination, std::string function,
 void MDSEventManager::sendMessage(std::string destination, std::string function, int32 argument)
 {
   
-std::cout << "SEND NUMERIC ARG\n";  
-  
     ConfigurationDatabase cdb;
     bool ok = cdb.Write("Class", "Message");
     if (ok) {
@@ -287,7 +282,6 @@ std::cout << "SEND NUMERIC ARG\n";
 }
 ErrorManagement::ErrorType MDSEventManager::sendMDSEvent(StreamString name, StreamString value)
 {
-    std::cout << "SEND MDS EVENT " << name.Buffer() << ", " << value.Buffer() << std::endl;
     MDSplus::Event::setEventRaw((const char *)name.Buffer(), StringHelper::Length(value.Buffer()), (char *)value.Buffer());
     return ErrorManagement::NoError;
 }

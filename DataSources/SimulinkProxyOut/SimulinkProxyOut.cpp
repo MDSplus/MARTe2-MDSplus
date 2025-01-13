@@ -124,6 +124,7 @@ bool SimulinkProxyOut::Synchronise()
         loss = true; 
         lossCount -= 1;
     }
+    //if(loss) printf("LOSS\n"); else printf("NO LOSS\n");
     if(!loss)
     {
         memcpy(&fifo[size * packetDelay], dataSourceMemory, size); //Same of the previous cycle
