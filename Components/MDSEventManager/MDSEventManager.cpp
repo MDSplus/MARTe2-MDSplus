@@ -148,6 +148,7 @@ bool MDSEventManager::Initialise(StructuredDataI & data) {
         }
         executor.SetStackSize(stackSize);
         executor.SetCPUMask(cpuMask);
+        executor.SetName("GetName()");
         ok = (Start() == ErrorManagement::NoError);
         /*(void) (data.Read("AutoStart", autoStart));
         if (autoStart == 1u) {
