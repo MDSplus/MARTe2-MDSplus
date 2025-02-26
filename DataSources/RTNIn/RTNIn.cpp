@@ -17,6 +17,10 @@
 /*---------------------------------------------------------------------------*/
 /*                           Method definitions                              */
 /*---------------------------------------------------------------------------*/
+
+#define DEBUG
+
+
 namespace MARTe {
 
 
@@ -120,9 +124,13 @@ bool RTNIn::GetInputBrokers(ReferenceContainer& inputBrokers, const char8* const
 
 bool RTNIn::Synchronise() {
 #ifdef DEBUG
-    REPORT_ERROR(ErrorManagement::Debug, "Synchronise");
+    REPORT_ERROR(ErrorManagement::Debug, "Synchronise....");
 #endif
     mutex.FastLock();
+#ifdef DEBUG
+    REPORT_ERROR(ErrorManagement::Debug, "Data Received!");
+#endif
+
     if(isSynch)
     {
         while(!samplesReady)
@@ -287,9 +295,14 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
     else if (info.GetStage() == ExecutionInfo::StartupStage) {
     }
     else {
-     //   printf("READING %d BYTES....\n", packetLen);
         uint32 packetLen = maxPacketLen;
+#ifdef DEBUG
+        printf("Rading %d bytes from port %d....\n", packetLen, port);
+#endif
         udpSocket.Read(udpBuffer, packetLen);
+#ifdef DEBUG
+        printf("Read!\n");
+#endif
         bool ok = packetLen > 16 + sizeof(int16); //Limit case 0 signals
         if(!ok) 
         {
@@ -298,6 +311,9 @@ ErrorManagement::ErrorType RTNIn::Execute(ExecutionInfo& info) {
         }
         uint32 packetId = *(uint32 *)(&udpBuffer[0]);
         char currSigName[257];
+#ifdef DEBUG
+        printf("Packet Id: %d\t circuitId: %d\n", packetId, circuitId);
+#endif
         if(packetId == circuitId)  //The message was for this one
         {
             uint32 currPacketOffs = 16;

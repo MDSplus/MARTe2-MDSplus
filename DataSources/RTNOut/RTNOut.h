@@ -187,6 +187,9 @@ private:
     uint32 **circuitIds;
     UDPSocket **udpSockets;  
 
+    StreamString *ips;
+    uint32 *ports;
+
 
 };
 }

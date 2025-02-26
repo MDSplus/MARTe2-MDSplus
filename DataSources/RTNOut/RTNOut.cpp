@@ -29,6 +29,8 @@
 /*---------------------------------------------------------------------------*/
 /*                           Method definitions                              */
 /*---------------------------------------------------------------------------*/
+
+#define DEBUG
 namespace MARTe {
 
 RTNOut::RTNOut() :
@@ -90,6 +92,7 @@ RTNOut::~RTNOut() {
         } 
         delete[] udpSockets;
     }
+
 }
 
 bool RTNOut::AllocateMemory() {
@@ -183,6 +186,9 @@ bool RTNOut::Synchronise()
         for (uint32 currIdx = 0; currIdx < numIps[sigIdx]; currIdx++)
         { 
             *(int32 *)&packet[0] = circuitIds[sigIdx][currIdx];
+#ifdef DEBUG
+            printf("Sending %d bytes to %s port %d\n", packetLens[sigIdx], ips[currIdx].Buffer(), ports[currIdx]);
+#endif
             if(!udpSockets[sigIdx][currIdx].Write(packet, packetLens[sigIdx]))
             {
                 REPORT_ERROR(ErrorManagement::FatalError,"Error sending UDP packet");
@@ -206,8 +212,8 @@ bool RTNOut::PrepareNextState(const char8* const currentStateName, const char8* 
 bool RTNOut::Initialise(StructuredDataI& data) {
     bool ok = DataSourceI::Initialise(data);
     StructuredDataIHelper helper(data, this);
-    StreamString *ips;
-    uint32 *ports;
+    //StreamString *ips;
+    //uint32 *ports;
      if(ok)
     {
         ok = data.MoveRelative("Signals");
@@ -302,8 +308,8 @@ bool RTNOut::Initialise(StructuredDataI& data) {
                         REPORT_ERROR(ErrorManagement::ParametersError, "Cannot Connect to %s", ips[sigIdx].Buffer());
                     }
                 } 
-                delete [] ips;
-                GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(ports));               
+                //delete [] ips;
+                //GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(ports));               
             } 
            data.MoveToAncestor(1u);
         }
