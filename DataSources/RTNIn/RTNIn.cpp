@@ -124,11 +124,11 @@ bool RTNIn::GetInputBrokers(ReferenceContainer& inputBrokers, const char8* const
 
 bool RTNIn::Synchronise() {
 #ifdef DEBUG
-    REPORT_ERROR(ErrorManagement::Debug, "Synchronise....");
+    printf("RTNIn::Synchronise\n");
 #endif
     mutex.FastLock();
 #ifdef DEBUG
-    REPORT_ERROR(ErrorManagement::Debug, "Data Received!");
+    printf("Data Received!\n");
 #endif
 
     if(isSynch)
