@@ -62,7 +62,8 @@ namespace MARTe {
  *  
  * The message payload will depend on the declared outputs for this DataSource instance. A check will be carried 
  * on the payload size, but misaligned items cannot be detected
- * The first output signal is mandatoru and named Time (int32). It will contain the relative time specified in the header.
+ * If synchronizing the first output signal is mandatory and named Time (int32). It will contain the relative time 
+ * specified in the header.
  * The following parameters are defined:
  * - IpAddr: IP address for this receiver
  * - Port: receive port

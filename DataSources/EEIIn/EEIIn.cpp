@@ -204,9 +204,9 @@ bool EEIIn::SetConfiguredDatabase(StructuredDataI& data) {
         }
         StreamString currSignalName;
         GetSignalName(0, currSignalName);
-        if(currSignalName != "Time")
+        if(isSynch && currSignalName != "Time")
         {
-            REPORT_ERROR(ErrorManagement::ParametersError, "The fist signal shall be named Time");
+            REPORT_ERROR(ErrorManagement::ParametersError, "The fist signal in synchornous mode shall be named Time");
             return false;
         }
         ok = GetSignalType(0) == SignedInteger32Bit || (GetSignalType(0) == UnsignedInteger32Bit);
@@ -239,14 +239,21 @@ bool EEIIn::SetConfiguredDatabase(StructuredDataI& data) {
             }
 		    totBufBytes += nBytes;
         }
+        if(isSynch)
+        {
         //Time is derived from header
-        expectedPacketLen = totBufBytes + HEADER_LEN - sizeof(int32);
+            expectedPacketLen = totBufBytes + HEADER_LEN - sizeof(int32);
+        }
+        else
+        {
+            expectedPacketLen = totBufBytes + HEADER_LEN;
+        }
 
         dataSourceMemory = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         buffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(totBufBytes * sizeof(char8)));
         memset(buffer, 0, totBufBytes);
         //Time is derived from header
-        udpBuffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(HEADER_LEN+totBufBytes - sizeof(int32))); 
+        udpBuffer = reinterpret_cast<char8 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(expectedPacketLen)); 
 	}
     if(ok) {
         if(!udpSocket.Open())
@@ -320,14 +327,19 @@ ErrorManagement::ErrorType EEIIn::Execute(ExecutionInfo& info) {
 #endif
         if(packetId == circuitId)  //The message was for this one
         {
-            //Take time from header
-            memcpy(buffer, &udpBuffer[2*sizeof(int32)], sizeof(int32));
-            //Copy remaining 
-            memcpy(&buffer[sizeof(int32)], &udpBuffer[HEADER_LEN], expectedPacketLen - HEADER_LEN);
-            sampleReady = true;
             if(isSynch)
             {
-               err = !eventSem.Post();
+                //Take time from header
+                memcpy(buffer, &udpBuffer[2*sizeof(int32)], sizeof(int32));
+                //Copy remaining 
+                memcpy(&buffer[sizeof(int32)], &udpBuffer[HEADER_LEN], expectedPacketLen - HEADER_LEN);
+                sampleReady = true;
+                err = !eventSem.Post();
+            }
+            else
+            {
+                //simply copy payload
+                memcpy(buffer, &udpBuffer[HEADER_LEN], expectedPacketLen - HEADER_LEN);
             }
             mutex.FastUnLock();
         }
