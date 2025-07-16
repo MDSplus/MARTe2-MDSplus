@@ -221,7 +221,7 @@ bool DutyCycleGAM::Setup() {
 bool DutyCycleGAM::Execute() {
         uint8  enabledIn;
 	if(enableIdx >= 0) {
-	    enabledIn = *inBits & (0x01 << enableIdx);
+	    enabledIn = (*inBits & (0x01 << enableIdx)) != 0;
 	} else  {
 	    enabledIn = 1;
 	}
