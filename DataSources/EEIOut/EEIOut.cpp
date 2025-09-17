@@ -30,7 +30,7 @@
 /*                           Method definitions                              */
 /*---------------------------------------------------------------------------*/
 
-#define DEBUG
+//#define DEBUG 1
 namespace MARTe {
 
 EEIOut::EEIOut() : DataSourceI() {
@@ -114,6 +114,9 @@ bool EEIOut::Synchronise()
     memcpy(&packet[2*sizeof(int32)], dataSourceMemory, sizeof(uint32));
     memcpy(&packet[HEADER_LEN], &dataSourceMemory[sizeof(int32)], dataSourceMemoryLen - sizeof(int32));
     uint32 packetLen = HEADER_LEN + dataSourceMemoryLen - sizeof(int32);
+#ifdef DEBUG
+    printf("Sent Counter: %d Time: %d\n", counter, *(uint32 *)dataSourceMemory);
+#endif
     if(!udpSocket.Write(packet, packetLen))
     {
         REPORT_ERROR(ErrorManagement::FatalError,"Error sending UDP packet");
@@ -173,7 +176,7 @@ bool EEIOut::Initialise(StructuredDataI& data) {
     }
     if(ok)
     {
-        printf("Connecting to %s   %d....\n", ip.Buffer(), port);
+       printf("Connecting to %s   %d....\n", ip.Buffer(), port);
         ok = udpSocket.Connect(ip.Buffer(), port);
         if(!ok)
         {

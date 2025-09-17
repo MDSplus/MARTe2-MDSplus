@@ -112,11 +112,11 @@ bool EEIIn::GetInputBrokers(ReferenceContainer& inputBrokers, const char8* const
 
 bool EEIIn::Synchronise() {
 #ifdef DEBUG
-    printf("EEIIn::Synchronise\n");
+   // printf("EEIIn::Synchronise\n");
 #endif
     mutex.FastLock();
 #ifdef DEBUG
-    printf("Data Received!\n");
+  //  printf("Data Received!\n");
 #endif
 
     if(isSynch)
@@ -307,12 +307,15 @@ ErrorManagement::ErrorType EEIIn::Execute(ExecutionInfo& info) {
     }
     else {
         uint32 packetLen = expectedPacketLen;
+
 #ifdef DEBUG
-        printf("Rading %d bytes from port %d....\n", packetLen, port);
+      //  if(counter > 1000)
+            printf("\n\nRading %d bytes from port %d....\n\n", packetLen, port);
 #endif
         udpSocket.Read(udpBuffer, packetLen);
 #ifdef DEBUG
-        printf("Read!\n");
+      //  if(counter > 1000)
+            printf("Read!\n");
 #endif
         bool ok = packetLen == expectedPacketLen;
         if(!ok) 
@@ -323,7 +326,8 @@ ErrorManagement::ErrorType EEIIn::Execute(ExecutionInfo& info) {
         uint32 packetId = *(uint32 *)(&udpBuffer[0]);
         char currSigName[257];
 #ifdef DEBUG
-        printf("Packet Id: %d\t circuitId: %d\n", packetId, circuitId);
+    //    if(counter > 1000)
+            printf("Packet Id: %d\t circuitId: %d\n", packetId, circuitId);
 #endif
         if(packetId == circuitId)  //The message was for this one
         {
@@ -331,6 +335,9 @@ ErrorManagement::ErrorType EEIIn::Execute(ExecutionInfo& info) {
             {
                 //Take time from header
                 memcpy(buffer, &udpBuffer[2*sizeof(int32)], sizeof(int32));
+#ifdef DEBUG
+                printf("Time: %dn", *(uint32 *)buffer);
+#endif
                 //Copy remaining 
                 memcpy(&buffer[sizeof(int32)], &udpBuffer[HEADER_LEN], expectedPacketLen - HEADER_LEN);
                 sampleReady = true;
@@ -344,6 +351,10 @@ ErrorManagement::ErrorType EEIIn::Execute(ExecutionInfo& info) {
             mutex.FastUnLock();
         }
     }
+    if(counter > 1000)
+        counter = 0;
+    else
+        counter++;
     return err;
 }
 

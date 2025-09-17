@@ -11,7 +11,7 @@
 #include "AdvancedErrorManagement.h"
 #include "MDSReaderGAM.h"
 
-#define DEBUG
+//#define DEBUG
 
 /*---------------------------------------------------------------------------*/
 /*                           Static definitions                              */

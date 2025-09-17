@@ -218,6 +218,7 @@ private:
     uint32 circuitId;
 
     UDPSocket udpSocket;
+    uint32 counter; 
   };
   
 
