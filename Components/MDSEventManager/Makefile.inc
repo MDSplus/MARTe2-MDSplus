@@ -44,10 +44,14 @@ INCLUDES += -I$(MARTe2_DIR)/Source/Core/BareMetal/L4Messages
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/BareMetal/L4Configuration
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/BareMetal/L5GAMs
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/Scheduler/L1Portability
+INCLUDES += -I$(MARTe2_DIR)/Source/Core/FileSystem/L1Portability
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/Scheduler/L3Services
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/Scheduler/L4Messages
 INCLUDES += -I$(MARTe2_DIR)/Source/Core/Scheduler/L5GAMs
 INCLUDES += -I$(MDSPLUS_DIR)/include
+
+
+
 
 all: $(OBJS) $(SUBPROJ) \
 	$(BUILD_DIR)/MDSEventManager$(DLLEXT)

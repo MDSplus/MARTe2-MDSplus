@@ -52,24 +52,7 @@
 /*---------------------------------------------------------------------------*/
 
 namespace MARTe {
-/**
- * @brief A container of EPICSPV variables. Provides the threading context for the EPICS CA interface.
- * @details The configuration syntax is (names are only given as an example):
- * +EPICS_CA = {
- *   Class = EPICSInterface::EPICSCAClient
- *   StackSize = 1048576 //Optional the EmbeddedThread stack size. Default value is THREADS_DEFAULT_STACKSIZE * 4u
- *   CPUs = 0xff //Optional the affinity of the EmbeddedThread (where the EPICS context is attached).
- *   AutoStart = 0 //Optional. Default = 1. If true the service will only be started after receiving a Start message (see Start method).
- *   +PV_1 = {
- *      Class = EPICSPV //See class documentation of EPICSPV
- *      ...
- *   }
- *   +PV_2 = {
- *      Class = EPICSPV
- *      ...
- *   }
- * }
- */
+
 class MDSEventManager: public ReferenceContainer, public EmbeddedServiceMethodBinderI, public MessageI {
 public:
     CLASS_REGISTER_DECLARATION()

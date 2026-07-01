@@ -207,7 +207,6 @@ bool MDSEventManager::readSock(BasicTCPSocket *sock, char *buf, int32 size)
 
 ErrorManagement::ErrorType MDSEventManager::Execute( ExecutionInfo& info) {
     ErrorManagement::ErrorType err = ErrorManagement::NoError;
-    printf("\nPARTE EXECUTE\n");
     if (info.GetStage() == ExecutionInfo::StartupStage) {
         (void) eventCallbackFastMux.FastLock();
  	eventManager = new MarteEvent(this);
@@ -216,7 +215,6 @@ ErrorManagement::ErrorType MDSEventManager::Execute( ExecutionInfo& info) {
         eventCallbackFastMux.FastUnLock();
     }
     else if (info.GetStage() != ExecutionInfo::BadTerminationStage) {
-        printf("\n\n\nSono in Execute Port: %d\n\n\n", port);
 //Handle incoming TCP connections for heartbeat management
 //The heartbeat protocol consists in just echoing the 4 byte value that has been read
         if(port > 0)
@@ -243,7 +241,6 @@ ErrorManagement::ErrorType MDSEventManager::Execute( ExecutionInfo& info) {
 	delete eventManager;
         eventCallbackFastMux.FastUnLock();
     }
-	printf("EXECUTE FINITA\n");
     return err;
 }
 
@@ -346,6 +343,8 @@ ErrorManagement::ErrorType MDSEventManager::sendMDSEvent(StreamString name, Stre
 }
 ErrorManagement::ErrorType MDSEventManager::sendMDSEventFloat(StreamString name, float64 value)
 {
+
+    printf("GENERATING MDS EVENT: %s   %f\n", name.Buffer(), value);
     MDSplus::Data *valueData = new MDSplus::Float64(value);
     MDSplus::Event::setEvent((const char *)name.Buffer(), valueData);
     MDSplus::deleteData(valueData);
