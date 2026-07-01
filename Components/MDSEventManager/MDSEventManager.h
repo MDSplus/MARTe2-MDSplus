@@ -45,6 +45,7 @@
 #include "StreamString.h"
 #include <iostream>
 #include <string>
+#include "BasicTCPSocket.h"
 
 /*---------------------------------------------------------------------------*/
 /*                           Class declaration                               */
@@ -130,9 +131,10 @@ public:
     void sendMessage(std::string destination, std::string function, int32 argument);
     
     ErrorManagement::ErrorType sendMDSEvent(StreamString name, StreamString value);
+    ErrorManagement::ErrorType sendMDSEventFloat(StreamString name, float64 value);
     StreamString name;
 private:
-
+    bool readSock(BasicTCPSocket *sock, char *buf, int32 size);
     /**
      * The EmbeddedThread where the ca_pend_event is executed.
      */
@@ -149,6 +151,16 @@ private:
     uint32 stackSize;
     
     MDSplus::Event *eventManager;
+
+    /**
+    * Hearbeat TCP listen port
+    */
+    uint32 port;
+
+    /** 
+    * Heartbeat Socket server
+    */
+    BasicTCPSocket serverSock;   
 
 };
 }

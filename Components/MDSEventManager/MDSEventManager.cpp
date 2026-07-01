@@ -146,9 +146,30 @@ bool MDSEventManager::Initialise(StructuredDataI & data) {
         if (!data.Read("Name", name)) {
             name = (char *)"MARTE";
         }
+        if (!data.Read("Port", port)) {
+            port = 0;
+        }
+
         executor.SetStackSize(stackSize);
         executor.SetCPUMask(cpuMask);
         executor.SetName("GetName()");
+    }
+    if(ok)
+    {
+        if(port > 0)
+        {
+            ok = serverSock.Open();
+            if(ok) 
+            {
+                ok = serverSock.Listen(port);
+            }
+            if(!ok)  {
+                REPORT_ERROR(ErrorManagement::FatalError, "Cannot listen at port = %d", port);
+            }
+        }
+    }
+    if(ok)
+    {
         ok = (Start() == ErrorManagement::NoError);
         /*(void) (data.Read("AutoStart", autoStart));
         if (autoStart == 1u) {
@@ -168,24 +189,61 @@ EmbeddedThreadI::States MDSEventManager::GetStatus() {
 }
 
 
+bool MDSEventManager::readSock(BasicTCPSocket *sock, char *buf, int32 size)
+{
+    uint32 leftBytes = size;
+    uint32 currBytes;
+    while(leftBytes > 0)
+    {
+        currBytes = leftBytes;
+        if(!sock->Read(buf + size - leftBytes, currBytes))
+            return false;
+        leftBytes -= currBytes;
+    }
+    return true;
+}
+
+
+
 ErrorManagement::ErrorType MDSEventManager::Execute( ExecutionInfo& info) {
     ErrorManagement::ErrorType err = ErrorManagement::NoError;
+    printf("\nPARTE EXECUTE\n");
     if (info.GetStage() == ExecutionInfo::StartupStage) {
         (void) eventCallbackFastMux.FastLock();
  	eventManager = new MarteEvent(this);
 	eventManager->start();
-        REPORT_ERROR(ErrorManagement::Information, "MDS Event Listener started");
+        REPORT_ERROR(ErrorManagement::Information, "MDS Event Listener startedXXXXXXXXXXXXXXXXXX");
         eventCallbackFastMux.FastUnLock();
     }
     else if (info.GetStage() != ExecutionInfo::BadTerminationStage) {
-        Sleep::Sec(1.0);
+        printf("\n\n\nSono in Execute Port: %d\n\n\n", port);
+//Handle incoming TCP connections for heartbeat management
+//The heartbeat protocol consists in just echoing the 4 byte value that has been read
+        if(port > 0)
+        {
+            printf("Waiting Connection.....");
+            BasicTCPSocket *sock = serverSock.WaitConnection();
+            while(true)
+            {
+                printf("Waiting command...\n");
+                char8 cmd[4];
+                if(!readSock(sock, cmd, 4))
+                    break;
+                uint32 writeLen = 4;
+                sock->Write(cmd, writeLen);
+            }
+        }
+        else
+        {
+            Sleep::Sec(1.0);
+        }
     }
     else {
         (void) eventCallbackFastMux.FastLock();
 	delete eventManager;
         eventCallbackFastMux.FastUnLock();
     }
-	
+	printf("EXECUTE FINITA\n");
     return err;
 }
 
@@ -286,6 +344,13 @@ ErrorManagement::ErrorType MDSEventManager::sendMDSEvent(StreamString name, Stre
     MDSplus::Event::setEventRaw((const char *)name.Buffer(), StringHelper::Length(value.Buffer()), (char *)value.Buffer());
     return ErrorManagement::NoError;
 }
+ErrorManagement::ErrorType MDSEventManager::sendMDSEventFloat(StreamString name, float64 value)
+{
+    MDSplus::Data *valueData = new MDSplus::Float64(value);
+    MDSplus::Event::setEvent((const char *)name.Buffer(), valueData);
+    MDSplus::deleteData(valueData);
+    return ErrorManagement::NoError;
+}
 //setEventRaw(const char *evName, int bufLen, char *buf)
 /*
 			+ChangeToIdleMsg = {
@@ -308,6 +373,7 @@ ErrorManagement::ErrorType MDSEventManager::sendMDSEvent(StreamString name, Stre
 CLASS_REGISTER(MDSEventManager, "1.0")
 CLASS_METHOD_REGISTER(MDSEventManager, Start)
 CLASS_METHOD_REGISTER(MDSEventManager, sendMDSEvent)
+CLASS_METHOD_REGISTER(MDSEventManager, sendMDSEventFloat)
 }
 
  
