@@ -65,6 +65,7 @@ public:
     uint32 numOutSignals;
     uint32 totSignalByteSize;
     uint32* signalByteSize;
+    uint32* outSignalByteSize;
     uint32* signalSamples;
 
     uint8 **inputSignals;

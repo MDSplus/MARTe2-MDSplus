@@ -35,6 +35,7 @@ PickSampleGAM::PickSampleGAM() : GAM(){
     numOutSignals = 0;
     signalSamples = NULL_PTR(uint32 *);
     signalByteSize = NULL_PTR(uint32 *);
+    outSignalByteSize = NULL_PTR(uint32 *);
     inputSignals = NULL_PTR(uint8 **);
     outputSignals = NULL_PTR(uint8 **);
 
@@ -49,6 +50,10 @@ PickSampleGAM::~PickSampleGAM() {
     if(signalByteSize !=  NULL_PTR(uint32 *))
     {
         GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(signalByteSize));
+    }    
+    if(outSignalByteSize !=  NULL_PTR(uint32 *))
+    {
+        GlobalObjectsDatabase::Instance()->GetStandardHeap()->Free(reinterpret_cast<void *&>(outSignalByteSize));
     }    
     if(inputSignals !=  NULL_PTR(uint8 **))
     {
@@ -122,6 +127,7 @@ bool PickSampleGAM::Setup() {
 
     signalSamples = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(numInSignals * sizeof(uint32)));
     signalByteSize = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(numInSignals * sizeof(uint32)));
+    outSignalByteSize = reinterpret_cast<uint32 *>(GlobalObjectsDatabase::Instance()->GetStandardHeap()->Malloc(numOutSignals * sizeof(uint32)));
     TypeDescriptor signalType;
     uint32 signalElement;
     totSignalByteSize = 0;
@@ -202,6 +208,21 @@ bool PickSampleGAM::Setup() {
             }
         }
     }
+
+   // Outputs
+    for (uint32 sigIdx = 0; sigIdx < numOutSignals; sigIdx++) {
+        ok = GetSignalByteSize(OutputSignals,sigIdx, outSignalByteSize[sigIdx]);
+        if (!ok) {
+                    
+            REPORT_ERROR(ErrorManagement::Exception,
+                                              "Error in GetSignalNumberOfSamples: output signal %i does not exist.", sigIdx);
+            return ok;
+                    
+        }
+    }
+
+
+
    //handle the separate case in which all inputs (first sample) is compacted into a single output
     if(numInSignals != numOutSignals) //In this case there is a single out signal due to the checks performed at initialization
     {
@@ -261,7 +282,9 @@ bool PickSampleGAM::Execute() {
  //Gabriele Oct 2023: copy last sample, i.e. the most recent one
  //           memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
 //            memcpy(outputSignals[sigIdx], inputSignals[sigIdx]+(signalSamples[sigIdx] - 1)*signalByteSize[sigIdx], signalByteSize[sigIdx]); //Copy last sample
-            memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
+//            memcpy(outputSignals[sigIdx], inputSignals[sigIdx], signalByteSize[sigIdx]); //Copy first sample
+            memcpy(outputSignals[sigIdx], inputSignals[sigIdx], outSignalByteSize[sigIdx]); //Copy first sample
+
         }
     }
     else //Compacting inputs in a single output
